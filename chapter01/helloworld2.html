@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>얌댕의 리액트</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script>
+      function MyButton(props) {
+        const [isClicked, setIsClicked] = React.useState(false);
+        return React.createElement(
+          "button",
+          { onClick: () => setIsClicked(true) },
+          isClicked ? "Clicked" : "No Clicked"
+        );
+      }
+
+      const domContainer = document.querySelector("#root");
+      ReactDOM.render(React.createElement(MyButton), domContainer);
+    </script>
+  </body>
+</html>
