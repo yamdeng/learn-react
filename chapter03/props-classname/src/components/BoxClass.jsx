@@ -1,6 +1,6 @@
-import React from "react";
+import React, { Component } from "react";
 
-class BoxClass extends React.Component {
+class BoxClass extends Component {
   render() {
     const { props } = this;
     const { bg } = props;
