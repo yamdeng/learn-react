@@ -8,3 +8,8 @@ step2 : prettier, eslint 적용 -라이브러리 설치
 step3.eslint, prettier 설정 파일 추가
 -.eslintrc.json
 -.prettierrc.js
+
+step4.mui 라이브러리 설치
+-npm install @mui/material @emotion/react @emotion/styled
+-npm install @fontsource/roboto
+-npm install @mui/icons-material
