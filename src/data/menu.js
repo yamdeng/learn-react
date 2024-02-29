@@ -2,15 +2,15 @@ const menu = [
   {
     title: 'Container',
     children: [
-      { title: 'Container', path: 'layout/Container' },
-      { title: 'Box', path: 'layout/Grid' }
+      { title: 'Container', path: 'dashboard' },
+      { title: 'Box', path: 'dashboard' }
     ]
   },
   {
     title: 'Panel',
     children: [
-      { title: 'Card', path: 'panel/Card' },
-      { title: 'Paper', path: 'panel/Paper' }
+      { title: 'Card', path: 'about' },
+      { title: 'Paper', path: 'about' }
     ]
   }
 ];

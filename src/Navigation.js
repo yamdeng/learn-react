@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import menu from './data/menu';
-
-// 1.show/hide, 메뉴 보이고 않보이게끔 처리
 
 export default function Navigation() {
   const [visibleMenuIndex, setVisibleMenuIndex] = useState(-1);
@@ -12,8 +10,23 @@ export default function Navigation() {
     event.stopPropagation();
     setVisibleMenuIndex(rootMenuIndex);
   };
+  const navigate = useNavigate();
+
+  const handleMoveRoute = function (event, path) {
+    event.stopPropagation();
+    event.preventDefault();
+    navigate(path);
+    setVisibleMenuIndex(-1);
+  };
+
+  const handleOuterClick = function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+    setVisibleMenuIndex(-1);
+  };
+
   return (
-    <div className='navbar'>
+    <div className='navbar' onClick={event => handleOuterClick(event)}>
       {menu.map((rootMenu, index) => {
         const { title, children } = rootMenu;
         return (
@@ -23,11 +36,11 @@ export default function Navigation() {
             </button>
             <div className={visibleMenuIndex === index ? 'dropdown-content show' : 'dropdown-content'}>
               {children.map((linkMenuInfo, linkIndex) => {
-                const { title: linkTitle } = linkMenuInfo;
+                const { title: linkTitle, path } = linkMenuInfo;
                 return (
-                  <Link to='/' key={linkIndex}>
+                  <a href={path} key={linkIndex} onClick={event => handleMoveRoute(event, path)}>
                     {linkTitle}
-                  </Link>
+                  </a>
                 );
               })}
             </div>
