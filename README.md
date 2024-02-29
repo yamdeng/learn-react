@@ -13,3 +13,8 @@ step4.mui 라이브러리 설치
 -npm install @mui/material @emotion/react @emotion/styled
 -npm install @fontsource/roboto
 -npm install @mui/icons-material
+
+step5.font 라이브러리 설치
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
