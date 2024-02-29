@@ -10,10 +10,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+.App {
+  margin: 10px;
+}
+
 .App .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color: #255bb4;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 7px;
 }
 
 .App .navbar a {
@@ -45,7 +50,7 @@ code {
 .App .navbar a:hover,
 .App .dropdown:hover .dropbtn,
 .App .dropbtn:focus {
-  background-color: red;
+  background-color: #7cd0d5;
 }
 
 .App .dropdown-content {
