@@ -2,8 +2,8 @@ const menu = [
   {
     title: 'Container',
     children: [
-      { title: 'Container', path: 'dashboard' },
-      { title: 'Box', path: 'dashboard' }
+      { title: 'Box', path: 'layout/box' },
+      { title: 'Grid', path: 'layout/grid' }
     ]
   },
   {

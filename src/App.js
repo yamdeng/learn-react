@@ -6,6 +6,8 @@ import About from './components/About';
 import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import NotMatch from './components/NotMatch';
+import Box from './components/layout/Box';
+import Grid from './components/layout/Grid';
 
 function App() {
   useEffect(() => {
@@ -19,6 +21,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='dashboard' element={<Dashboard />} />
+          <Route path='layout/box' element={<Box />} />
+          <Route path='layout/grid' element={<Grid />} />
           <Route path='*' element={<NotMatch />} />
         </Route>
       </Routes>
