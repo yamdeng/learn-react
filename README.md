@@ -18,3 +18,6 @@ step5.font 라이브러리 설치
 npm i --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
+
+step6.react-router 반영
+npm install react-router-dom localforage match-sorter sort-by
