@@ -21,3 +21,8 @@ npm install --save @fortawesome/react-fontawesome
 
 step6.react-router 반영
 npm install react-router-dom localforage match-sorter sort-by
+
+step7.package.json eslint 정의되어있는 부분 삭제
+
+step8.경고메시지 제거
+-yarn add @babel/plugin-proposal-private-property-in-object --dev
