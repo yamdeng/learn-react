@@ -1,2 +1,1 @@
-# learn-react
-learn-react
+### learn-react-example-template-js
