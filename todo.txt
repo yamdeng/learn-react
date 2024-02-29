@@ -1,0 +1,32 @@
+1.1차적으로 react-router 적용
+ -basic example 확인해서 반영
+
+2.menu.js를 설정 정보를 바탕으로 설정 파일 자체로 라우터가 적용되게금 반영
+ -1차적으로 2개정도만 해보고 이후에 잘되면 나머지까지 전체 반영
+
+3.상단 메뉴 부분 스타일 조금 깔끔하게 바꾸기
+ -파란색 계열로 스타일 반영
+
+======= 완료 =======
+
+
+4.최초 버전을 기준으로 example-template-js 브런치 만들기
+ -mui에 정의한 READMD.md 파일을 기준으로 작업한 부분 작성하기
+
+5.최초 버전을 기준으로 example-template-ts 브런치 만들기
+ -cra --template typescript로 예시 만들기
+ -mui에 정의한 README.md 파일을 기준으로 작업한 부분 작성하기
+
+6.openlabs에 있는 부분을 일단 dnd 브런치에 move를 시켜야 하므로 만들어놓은 예시를 dnd 브런치 move 시킴
+ -example-template-ts 프로젝트를 기준으로 프로젝트를 생성함
+ -menu.js에 설정 정보 정의하고 작성한 예시를 적당히 분류해서 옮겨놓음
+  : react-dnd-example
+
+
+
+=== 일단 여기까지 적용 === : 오후 1시전까지 반영을 목표로
+
+
+
+
+
