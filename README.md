@@ -1,1 +1,1 @@
-### learn-react-example-template-js
+### learn-react-example-template-ts
