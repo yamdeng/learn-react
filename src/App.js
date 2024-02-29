@@ -2,27 +2,36 @@ import './App.css';
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
-import About from './components/About';
-import Dashboard from './components/Dashboard';
 import Home from './components/Home';
 import NotMatch from './components/NotMatch';
-import Box from './components/layout/Box';
-import Grid from './components/layout/Grid';
+import menu from './data/menu';
+
+let routeMenuList = [];
+menu.forEach(rootMenuInfo => {
+  const children = rootMenuInfo.children;
+  routeMenuList = routeMenuList.concat(children);
+});
 
 function App() {
   useEffect(() => {
     //
   }, []);
 
+  const routes = (
+    <>
+      {routeMenuList.map((menuInfo, index) => {
+        const Component = menuInfo.component;
+        return <Route key={index} path={menuInfo.path} element={<Component />} />;
+      })}
+    </>
+  );
+
   return (
     <div className='App'>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path='about' element={<About />} />
-          <Route path='dashboard' element={<Dashboard />} />
-          <Route path='layout/box' element={<Box />} />
-          <Route path='layout/grid' element={<Grid />} />
+          {routes}
           <Route path='*' element={<NotMatch />} />
         </Route>
       </Routes>
