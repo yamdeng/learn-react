@@ -1,9 +1,14 @@
 import './App.css';
+import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown } from '@fortawesome/free-solid-svg-icons';
 import Button from '@mui/material/Button';
 
 function App() {
+  useEffect(() => {
+    //
+  }, []);
+
   return (
     <div className='App'>
       <div className='navbar'>
