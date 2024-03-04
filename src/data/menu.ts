@@ -1,17 +1,33 @@
-import Box from "../components/example/Box.tsx";
-import Grid from "../components/example/Grid.tsx";
+import BasicFormExample from "../components/example/BasicFormExample.tsx";
+import ListFormExample from "../components/example/ListFormExample.tsx";
+import TableFormExample from "../components/example/TableFormExample.tsx";
+import NestedTableFormExample from "../components/example/NestedTableFormExample.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
   {
-    title: "Container",
+    title: "example",
     children: [
       {
-        title: "Box",
-        path: "layout/box",
-        component: Box,
+        title: "BasicFormExample",
+        path: "example/basic",
+        component: BasicFormExample,
       },
-      { title: "Grid", path: "layout/grid", component: Grid },
+      {
+        title: "ListFormExample",
+        path: "example/list",
+        component: ListFormExample,
+      },
+      {
+        title: "TableFormExample",
+        path: "example/table",
+        component: TableFormExample,
+      },
+      {
+        title: "NestedTableFormExample",
+        path: "example/nested-table",
+        component: NestedTableFormExample,
+      },
     ],
   },
 ];
