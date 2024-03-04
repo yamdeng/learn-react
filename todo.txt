@@ -1,0 +1,68 @@
+#.basic form : plain validation, yup validation
+
+1.text field, number text field
+2.text area
+3.checkbox
+4.radio group
+5.switch
+6.select
+7.auto complete
+8.password, password confirm
+9.button, button-group, form
+10.file
+11.date-picker
+a
+#.useFieldArray test form
+
+1.기본 info
+ -text field 2개
+ -number text field 1개
+ -checkbox 1개
+ -select 1개
+
+2.list 관련 array 구성
+ -text field 2개
+ -number text field 1개
+ -select 1개
+ -checkbox 1개
+ -button 2개 : 삭제, 추가
+
+3.nested list array 구성
+ -LIST > SUBLIST > LAST SUBLIST로 구성
+
+ 3-1.LIST
+  -text field 2개
+  -number text field 1개
+  -select 1개
+  -checkbox 1개
+  -button 2개 : 삭제, 추가
+
+   3-2.SUBLIST
+    -text field 1개
+    -number text field 1개
+    -select 1개
+    -button 1개 : 삭제, 추가
+
+     3-3.LAST SUBLIST
+      -text field 1개
+      -select 1개
+      -radio group : 삭제
+ 
+4.nested list array 구성 : dialog로 구성
+
+
+
+
+### 일반 화면 목록(예시) ###
+
+ 1.기본 폼 : 전체가 다 존재하는 폼
+  -example/basic
+
+ 2.상단 기본 폼과 목록 단위로 존재하는 폼
+  -example/list
+
+ 3.상단 기본 폼과 테이블 단위로 목록 형태로 존재하는 폼
+  -example/table
+
+ 4.상단 기본 폼과 테이블 단위로 중첩 목록 형태로 존재하는 폼
+  -example/table-nested
