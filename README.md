@@ -1,1 +1,3 @@
-### learn-react-example-template-js
+### project init
+
+yarn create vite . --template react-swc
