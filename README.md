@@ -1,3 +1,3 @@
-### learn-react-example-template-ts
+### project init
 
-step1.yarn create react-app {appname} --template typescript
+yarn create vite . --template react-swc-ts
