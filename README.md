@@ -1,4 +1,4 @@
-### project init
+### project init : example-typescript
 
 yarn create vite . --template react-swc-ts
 
