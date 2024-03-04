@@ -1,4 +1,4 @@
-### project init
+### project init : material-ui example
 
 yarn create vite . --template react-swc-ts
 
