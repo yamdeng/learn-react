@@ -1,4 +1,4 @@
-### project init
+### project init : example-javascript
 
 yarn create vite . --template react-swc
 
