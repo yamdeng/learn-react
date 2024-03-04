@@ -1,2 +1,1 @@
-# learn-react
-learn-react
+## drag&drop typescript example
