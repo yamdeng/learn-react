@@ -1,17 +1,21 @@
-import Box from "../components/example/Box.tsx";
-import Grid from "../components/example/Grid.tsx";
+import MuiTable from "../components/mui/MuiTable.tsx";
+import MuiFormController from "../components/mui/MuiFormController.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
   {
-    title: "Container",
+    title: "Basic",
     children: [
       {
-        title: "Box",
-        path: "layout/box",
-        component: Box,
+        title: "MuiTable",
+        path: "basic/table",
+        component: MuiTable,
       },
-      { title: "Grid", path: "layout/grid", component: Grid },
+      {
+        title: "MuiFormController",
+        path: "basic/form",
+        component: MuiFormController,
+      },
     ],
   },
 ];
