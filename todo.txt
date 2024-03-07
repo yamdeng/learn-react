@@ -96,3 +96,6 @@
 7.mui table ui로 확인하는 3중 list usedFieldARray 예시 + 모달적용
 
 
+#.yup 확인
+
+#.엔터키 먹는 기준 확인
