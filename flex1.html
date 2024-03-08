@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+
+      * {
+        box-sizing: border-box;
+      }
+      
+      .container {
+        border: 1px solid #9e9e9e;
+        display: inline-block;
+        width: auto;
+        font-size: 21px;
+        padding: 5px;
+      }
+
+      .flex-container {
+        display: flex;
+        width: 600px;
+        margin-bottom: 5px;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .div-label {
+        text-align: right;
+        padding: 8px 5px 8px 0px !important;
+        flex-shrink: 1;
+        max-width: 100px;
+      }
+
+      input[type=text] {
+        width: 100%;
+        padding: 15px;
+        display: inline-block;
+        background-color: #f1f1f1;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-container">
+        <div style="flex-grow: 1" class="div-label">ID :</div>
+        <div style="flex-grow: 4">
+          <input type="text" placeholder="ID" name="id" required=""/>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div style="flex-grow: 1" class="div-label">이름 :</div>
+        <div style="flex-grow: 4">
+          <input type="text" placeholder="NAME" name="name" required=""/>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div style="flex-grow: 1;" class="div-label">나이 :</div>
+        <div style="flex-grow: 4">
+          <input type="text" placeholder="AGE" name="age" required=""/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
