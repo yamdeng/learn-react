@@ -1,7 +1,4 @@
-import BasicFormExample from "../components/example/BasicFormExample.tsx";
-import ListFormExample from "../components/example/ListFormExample.tsx";
-import TableFormExample from "../components/example/TableFormExample.tsx";
-import NestedTableFormExample from "../components/example/NestedTableFormExample.tsx";
+import ExampleBasicFormOne from "../components/example/ExampleBasicFormOne.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -10,23 +7,8 @@ const menu: Menu[] = [
     children: [
       {
         title: "BasicFormExample",
-        path: "example/basic",
-        component: BasicFormExample,
-      },
-      {
-        title: "ListFormExample",
-        path: "example/list",
-        component: ListFormExample,
-      },
-      {
-        title: "TableFormExample",
-        path: "example/table",
-        component: TableFormExample,
-      },
-      {
-        title: "NestedTableFormExample",
-        path: "example/nested-table",
-        component: NestedTableFormExample,
+        path: "example/basic-one-column",
+        component: ExampleBasicFormOne,
       },
     ],
   },
