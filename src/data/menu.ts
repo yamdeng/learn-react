@@ -1,10 +1,9 @@
 import ExampleBasicFormOne from "../components/example/ExampleBasicFormOne.tsx";
 import ExampleBasicFormTwo from "../components/example/ExampleBasicFormTwo.tsx";
+import ExambleFormList from "../components/example/ExambleFormList.tsx";
+import ExampleFormTable from "../components/example/ExampleFormTable.tsx";
+import ExampleFormNestedTable from "../components/example/ExampleFormNestedTable.tsx";
 import { Menu } from "../types/index.ts";
-
-// ExambleFormList.tsx : example/list
-// ExampleFormTable.tsx : example/table
-// ExampleFormNestedTable.tsx : example/table-nested
 
 const menu: Menu[] = [
   {
@@ -19,6 +18,21 @@ const menu: Menu[] = [
         title: "ExampleBasicFormTwo",
         path: "example/basic-two-column",
         component: ExampleBasicFormTwo,
+      },
+      {
+        title: "ExambleFormList",
+        path: "example/list",
+        component: ExambleFormList,
+      },
+      {
+        title: "ExampleFormTable",
+        path: "example/table",
+        component: ExampleFormTable,
+      },
+      {
+        title: "ExampleFormNestedTable",
+        path: "example/table-nested",
+        component: ExampleFormNestedTable,
       },
     ],
   },

@@ -270,3 +270,38 @@ input:checked + .slider:before {
   font-size: 16px;
   resize: none;
 }
+
+/* list style start */
+.list-form-container {
+  width: 1000px;
+  border: 1px solid #9e9e9e;
+  margin-top: 10px;
+}
+
+.list-input-container {
+  display: inline-grid;
+  padding: 5px;
+  grid-template-columns: 115px 115px 115px 115px 260px 115px 115px;
+  gap: 5px;
+}
+
+.list-input-container .div-input .button {
+  padding: 9px 12px;
+}
+
+/* table style start */
+.table-container {
+  width: 1000px;
+  border: 1px solid #9e9e9e;
+  margin-top: 10px;
+}
+
+.table-container tr .button {
+  padding: 9px 12px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
