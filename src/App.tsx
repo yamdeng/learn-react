@@ -5,6 +5,23 @@ import Home from "./components/Home";
 import NotMatch from "./components/NotMatch";
 import menu from "./data/menu";
 import { MenuChild } from "./types/index.ts";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+const globalStyles = (
+  <GlobalStyles
+    styles={() => ({
+      html: {
+        height: "100%",
+        fontSize: "17px",
+      },
+      body: {
+        height: "100%",
+        fontSize: "21px",
+      },
+    })}
+  />
+);
 
 let routeMenuList: MenuChild[] = [];
 menu.forEach((rootMenuInfo) => {
@@ -30,6 +47,8 @@ function App() {
 
   return (
     <div className="App">
+      <CssBaseline />
+      {globalStyles}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
