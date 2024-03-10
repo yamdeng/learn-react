@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>grid 1열</title>
+    <title>grid 2열</title>
     <style>
       * {
         box-sizing: border-box;
@@ -64,18 +64,18 @@
         background-color: #bfbcbc;
       }
 
-      .grid-container {
+      .grid-root-container {
         display: inline-grid;
         border: 1px solid #9e9e9e;
-        grid-template-columns: 120px 460px;
+        grid-template-columns: auto auto;
         gap: 5px;
         padding: 5px;
         font-size: 21px;
       }
 
-      .div-label {
-        text-align: right;
-        padding: 8px 5px 8px 0px !important;
+      .grid-root-container > .grid-input-container {
+        display: inline-grid;
+        grid-template-columns: 120px 370px;
       }
 
       .right {
@@ -86,6 +86,15 @@
         text-align: left;
       }
 
+      .div-label {
+        text-align: right;
+        padding: 8px 5px 8px 0px !important;
+      }
+
+      .div-input.radio {
+        padding: 7px;
+      }
+
       input[type="text"],
       input[type="password"] {
         width: 100%;
@@ -93,10 +102,6 @@
         display: inline-block;
         background-color: #f1f1f1;
         border: none;
-      }
-
-      .div-input.radio {
-        padding: 7px;
       }
 
       select {
@@ -177,84 +182,98 @@
         font-size: 16px;
         resize: none;
       }
-
-      /* switch style end */
     </style>
   </head>
   <body>
-    <div class="grid-container">
-      <div class="div-label">ID :</div>
-      <div class="div-input">
-        <input type="text" placeholder="ID" name="id" required="" />
+    <div class="grid-root-container">
+      <div class="grid-input-container">
+        <div class="div-label">ID :</div>
+        <div class="div-input">
+          <input type="text" placeholder="ID" name="id" required="" />
+        </div>
+      </div>
+      <div class="grid-input-container">
+        <div class="div-label">이름 :</div>
+        <div class="div-input">
+          <input type="text" placeholder="NAME" name="name" required="" />
+        </div>
       </div>
 
-      <div class="div-label">이름 :</div>
-      <div class="div-input">
-        <input type="text" placeholder="NAME" name="name" required="" />
+      <div class="grid-input-container">
+        <div class="div-label">나이 :</div>
+        <div class="div-input">
+          <input type="text" placeholder="AGE" name="age" required="" />
+        </div>
+      </div>
+      <div class="grid-input-container">
+        <div class="div-label">이메일 :</div>
+        <div class="div-input">
+          <input type="text" placeholder="EMAIL" name="email" required="" />
+        </div>
       </div>
 
-      <div class="div-label">나이 :</div>
-      <div class="div-input">
-        <input type="text" placeholder="AGE" name="age" required="" />
+      <div class="grid-input-container">
+        <div class="div-label">암호 :</div>
+        <div class="div-input">
+          <input
+            type="text"
+            placeholder="PASSWORD"
+            name="password"
+            required=""
+          />
+        </div>
+      </div>
+      <div class="grid-input-container">
+        <div class="div-label">암호확인 :</div>
+        <div class="div-input">
+          <input
+            type="text"
+            placeholder="confirm PASSWORD"
+            name="confirm-password"
+            required=""
+          />
+        </div>
       </div>
 
-      <div class="div-label">이메일 :</div>
-      <div class="div-input">
-        <input type="text" placeholder="EMAIL" name="email" required="" />
+      <div class="grid-input-container">
+        <div class="div-label">남/여 :</div>
+        <div class="div-input radio">
+          <input type="radio" id="sex_male" name="sex" value="male" />
+          <label for="sex_male">남</label>
+          <input type="radio" id="sex_female" name="sex" value="female" />
+          <label for="sex_female">여</label>
+        </div>
+      </div>
+      <div class="grid-input-container">
+        <div class="div-label">직업 :</div>
+        <div class="div-input radio">
+          <select name="job" id="job">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
       </div>
 
-      <div class="div-label">암호 :</div>
-      <div class="div-input">
-        <input
-          type="password"
-          placeholder="PASSWORD"
-          name="password"
-          required=""
-        />
+      <div class="grid-input-container">
+        <div class="div-label">알림 :</div>
+        <div class="div-input radio">
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="grid-input-container">
+        <div class="div-label">설명 :</div>
+        <div class="div-input">
+          <textarea class="textarea">Some text...</textarea>
+        </div>
       </div>
 
-      <div class="div-label">암호확인 :</div>
-      <div class="div-input">
-        <input
-          type="password"
-          placeholder="confirm PASSWORD"
-          name="confirm-password"
-          required=""
-        />
-      </div>
-
-      <div class="div-label">남/여 :</div>
-      <div class="div-input radio">
-        <input type="radio" id="sex_male" name="sex" value="male" />
-        <label for="sex_male">남</label>
-        <input type="radio" id="sex_female" name="sex" value="female" />
-        <label for="sex_female">여</label>
-      </div>
-
-      <div class="div-label">직업 :</div>
-      <div class="div-input radio">
-        <select name="job" id="job">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
-        </select>
-      </div>
-
-      <div class="div-label">알림 :</div>
-      <div class="div-input radio">
-        <label class="switch">
-          <input type="checkbox" checked />
-          <span class="slider round"></span>
-        </label>
-      </div>
-
-      <div class="div-label">설명 :</div>
-      <div class="div-input">
-        <textarea class="textarea">Some text...</textarea>
-      </div>
-
-      <div class="right" style="width: 580px">
+      <div></div>
+      <div class="right" style="width: auto">
         <button class="button button-cancel">취소</button>
         <button class="button button-info">저장</button>
       </div>
