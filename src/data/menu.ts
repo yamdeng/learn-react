@@ -5,6 +5,8 @@ import ExampleFormTable from "../components/example/ExampleFormTable.tsx";
 import ExampleFormNestedTable from "../components/example/ExampleFormNestedTable.tsx";
 
 import ExampleMuiTest from "../components/example/mui/ExampleMuiTest.tsx";
+import ExampleMuiBasicFormOne from "../components/example/mui/ExampleMuiBasicFormOne.tsx";
+import ExampleMuiBasicFormTwo from "../components/example/mui/ExampleMuiBasicFormTwo.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -45,6 +47,16 @@ const menu: Menu[] = [
         title: "ExampleMuiTest",
         path: "example-mui/test",
         component: ExampleMuiTest,
+      },
+      {
+        title: "ExampleMuiBasicFormOne",
+        path: "example-mui/basic-one-column",
+        component: ExampleMuiBasicFormOne,
+      },
+      {
+        title: "ExampleMuiBasicFormTwo",
+        path: "example-mui/basic-two-column",
+        component: ExampleMuiBasicFormTwo,
       },
     ],
   },
