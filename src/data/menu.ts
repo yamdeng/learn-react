@@ -9,6 +9,7 @@ import ExampleMuiBasicFormOne from "../components/example/mui/ExampleMuiBasicFor
 import ExampleMuiBasicFormTwo from "../components/example/mui/ExampleMuiBasicFormTwo.tsx";
 import ExampleMuiBasicFormTable from "../components/example/mui/ExampleMuiBasicFormTable.tsx";
 import ExampleMuiBasicFormNestedTable from "../components/example/mui/ExampleMuiBasicFormNestedTable.tsx";
+import ExampleMuiFormModalPage from "../components/example/mui/ExampleMuiFormModalPage.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -69,6 +70,11 @@ const menu: Menu[] = [
         title: "ExampleMuiBasicFormNestedTable",
         path: "example-mui/table-nested",
         component: ExampleMuiBasicFormNestedTable,
+      },
+      {
+        title: "ExampleMuiFormModalPage",
+        path: "example-mui/modal",
+        component: ExampleMuiFormModalPage,
       },
     ],
   },
