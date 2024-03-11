@@ -26,6 +26,61 @@ import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
   {
+    title: "hook-form",
+    children: [
+      {
+        title: "HookFormHtml",
+        path: "hook-form/html",
+        component: HookFormHtml,
+      },
+      {
+        title: "HookFormMui",
+        path: "hook-form/mui",
+        component: HookFormMui,
+      },
+      {
+        title: "HookFormHtmlYup",
+        path: "hook-form/html-yup",
+        component: HookFormHtmlYup,
+      },
+      {
+        title: "HookFormMuiYup",
+        path: "hook-form/mui-yup",
+        component: HookFormMuiYup,
+      },
+      {
+        title: "HookFormHtmlArray",
+        path: "hook-form/html-array",
+        component: HookFormHtmlArray,
+      },
+      {
+        title: "HookFormMuiArray",
+        path: "hook-form/html-mui",
+        component: HookFormMuiArray,
+      },
+      {
+        title: "HookFormHtmlArrayYup",
+        path: "hook-form/html-array-yup",
+        component: HookFormHtmlArrayYup,
+      },
+      {
+        title: "HookFormMuiArrayYup",
+        path: "hook-form/mui-array-yup",
+        component: HookFormMuiArrayYup,
+      },
+      {
+        title: "HookFormHtmlTotal",
+        path: "hook-form/html-total",
+        component: HookFormHtmlTotal,
+      },
+      {
+        title: "HookFormMuiTotal",
+        path: "hook-form/mui-total",
+        component: HookFormMuiTotal,
+      },
+    ],
+  },
+  {
     title: "example",
     children: [
       {
@@ -87,61 +142,6 @@ const menu: Menu[] = [
         title: "ExampleMuiFormModalPage",
         path: "example-mui/modal",
         component: ExampleMuiFormModalPage,
-      },
-    ],
-  },
-  {
-    title: "hook-form",
-    children: [
-      {
-        title: "HookFormHtml",
-        path: "hook-form/html",
-        component: HookFormHtml,
-      },
-      {
-        title: "HookFormMui",
-        path: "hook-form/mui",
-        component: HookFormMui,
-      },
-      {
-        title: "HookFormHtmlYup",
-        path: "hook-form/html-yup",
-        component: HookFormHtmlYup,
-      },
-      {
-        title: "HookFormMuiYup",
-        path: "hook-form/mui-yup",
-        component: HookFormMuiYup,
-      },
-      {
-        title: "HookFormHtmlArray",
-        path: "hook-form/html-array",
-        component: HookFormHtmlArray,
-      },
-      {
-        title: "HookFormMuiArray",
-        path: "hook-form/html-mui",
-        component: HookFormMuiArray,
-      },
-      {
-        title: "HookFormHtmlArrayYup",
-        path: "hook-form/html-array-yup",
-        component: HookFormHtmlArrayYup,
-      },
-      {
-        title: "HookFormMuiArrayYup",
-        path: "hook-form/mui-array-yup",
-        component: HookFormMuiArrayYup,
-      },
-      {
-        title: "HookFormHtmlTotal",
-        path: "hook-form/html-total",
-        component: HookFormHtmlTotal,
-      },
-      {
-        title: "HookFormMuiTotal",
-        path: "hook-form/mui-total",
-        component: HookFormMuiTotal,
       },
     ],
   },

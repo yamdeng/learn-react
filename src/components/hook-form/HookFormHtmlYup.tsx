@@ -23,8 +23,14 @@ export default function HookFormHtmlYup() {
   console.log(watch("description")); // watch를 쓰는것은 좋지 않음
   console.log(errors);
 
+  const filePath =
+    "vscode://file/C://Project/yamdeng/learn-react/src/components/hook-form/HookFormHtmlYup.tsx";
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+      <h3>
+        <a href={filePath}>file open 123</a>{" "}
+      </h3>
       <div className="grid-one-container">
         <div className="div-label">ID :</div>
         <div className="div-input">
