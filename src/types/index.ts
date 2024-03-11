@@ -26,5 +26,5 @@ export type BasicInfo = {
   sex?: string;
   job?: string;
   useAlarm: boolean;
-  description: string;
+  description?: string;
 };
