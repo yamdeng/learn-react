@@ -19,7 +19,7 @@ export interface Menu {
 export type BasicInfo = {
   id: string;
   name: string;
-  age: number;
+  age: number | null;
   email: string;
   password: string;
   "confirm-password": string;

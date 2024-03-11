@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { BasicInfo } from "../../types";
 import { EMAIL_PATTERN } from "../../utils/pattern";
+import { basicFormDefaultValues } from "../../utils/values";
 
 export default function HookFormHtml() {
   const {
@@ -8,7 +9,9 @@ export default function HookFormHtml() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<BasicInfo>();
+  } = useForm<BasicInfo>({
+    defaultValues: basicFormDefaultValues,
+  });
 
   const onSubmit: SubmitHandler<BasicInfo> = (data: BasicInfo) => {
     console.log(`data : ${JSON.stringify(data)}`);
