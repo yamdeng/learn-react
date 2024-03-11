@@ -297,7 +297,7 @@ input:checked + .slider:before {
 
 /* table style start */
 .table-container {
-  width: 1000px;
+  width: 1200px;
   border: 1px solid #9e9e9e;
   margin-top: 10px;
 }
