@@ -19,3 +19,7 @@ yarn add yarn add @mui/material @emotion/react @emotion/styled @fontsource/robot
 ### react-hook-form install
 
 yarn add react-hook-form @hookform/resolvers yup
+
+### uuid install
+
+yarn add uuid @types/uuid

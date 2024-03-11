@@ -10,3 +10,12 @@ export const basicFormDefaultValues = {
   useAlarm: false,
   description: "",
 };
+
+export const inputListDefaultValues = {
+  name: "asdasdasd",
+  length: 10,
+  dataType: "object",
+  requireYn: "Y",
+  description: "",
+  checkedAlarm: true,
+};

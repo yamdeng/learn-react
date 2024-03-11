@@ -27,4 +27,5 @@ export type BasicInfo = {
   job?: string;
   useAlarm: boolean;
   description?: string;
+  inputList: any;
 };
