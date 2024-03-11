@@ -4,6 +4,7 @@ export default function ExampleBasicFormOne(): React.ReactNode {
       <div className="div-label">ID :</div>
       <div className="div-input">
         <input type="text" placeholder="ID" name="id" required />
+        <span className="error_message">errormessage</span>
       </div>
 
       <div className="div-label">이름 :</div>

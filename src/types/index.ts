@@ -15,3 +15,16 @@ export interface Menu {
   title: string;
   children: MenuChild[];
 }
+
+export type BasicInfo = {
+  id: string;
+  name: string;
+  age: number;
+  email: string;
+  password: string;
+  "confirm-password": string;
+  sex?: string;
+  job?: string;
+  useAlarm: boolean;
+  description: string;
+};

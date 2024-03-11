@@ -184,6 +184,7 @@ code {
 }
 
 input[type="text"],
+input[type="number"],
 input[type="password"] {
   width: 100%;
   padding: 15px;
@@ -304,4 +305,9 @@ table,
 th,
 td {
   border: 1px solid black;
+}
+
+.error_message {
+  font-weight: bold;
+  color: red;
 }
