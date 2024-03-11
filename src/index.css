@@ -309,5 +309,5 @@ td {
 
 .error_message {
   font-weight: bold;
-  color: red;
+  color: red !important;
 }
