@@ -101,10 +101,14 @@ export default function HookFormMuiArrayYup() {
             sx={{ padding: "5px" }}
             alignItems="center"
           >
-            <Grid xs={1.5} sx={{ textAlign: "right", paddingRight: "5px" }}>
+            <Grid
+              xs={1.5}
+              sx={{ textAlign: "right", paddingRight: "5px" }}
+              item={true}
+            >
               id
             </Grid>
-            <Grid xs={4.5}>
+            <Grid xs={4.5} item={true}>
               <Controller
                 name="id"
                 control={control}
@@ -124,10 +128,14 @@ export default function HookFormMuiArrayYup() {
                 )}
               />
             </Grid>
-            <Grid xs={1.5} sx={{ textAlign: "right", paddingRight: "5px" }}>
+            <Grid
+              xs={1.5}
+              sx={{ textAlign: "right", paddingRight: "5px" }}
+              item={true}
+            >
               이름
             </Grid>
-            <Grid xs={4.5}>
+            <Grid xs={4.5} item={true}>
               <Controller
                 name="name"
                 control={control}
@@ -163,10 +171,14 @@ export default function HookFormMuiArrayYup() {
             sx={{ padding: "5px" }}
             alignItems="center"
           >
-            <Grid xs={1.5} sx={{ textAlign: "right", paddingRight: "5px" }}>
+            <Grid
+              xs={1.5}
+              sx={{ textAlign: "right", paddingRight: "5px" }}
+              item={true}
+            >
               나이
             </Grid>
-            <Grid xs={4.5}>
+            <Grid xs={4.5} item={true}>
               <Controller
                 name="age"
                 control={control}
@@ -181,10 +193,14 @@ export default function HookFormMuiArrayYup() {
                 )}
               />
             </Grid>
-            <Grid xs={1.5} sx={{ textAlign: "right", paddingRight: "5px" }}>
+            <Grid
+              xs={1.5}
+              sx={{ textAlign: "right", paddingRight: "5px" }}
+              item={true}
+            >
               이메일
             </Grid>
-            <Grid xs={4.5}>
+            <Grid xs={4.5} item={true}>
               <Controller
                 name="email"
                 control={control}

@@ -1,7 +1,7 @@
 export const basicFormDefaultValues = {
   id: "",
   name: "",
-  age: null,
+  age: undefined,
   email: "",
   password: "1111",
   "confirm-password": "",
