@@ -50,4 +50,20 @@ export type ArrayInfo = {
 export type FinalFormInput = {
   name: string;
   email: string;
+  inputFields: FinalFieldInput[];
+  outputFields: FinalFieldInput[];
+};
+
+export type FinalFieldInput = {
+  name: string;
+  length?: number | undefined;
+  dataType: string;
+  requireYn: string;
+  description?: string | undefined;
+  useAlarm?: boolean | undefined;
+  depth: number;
+  categoryLabel: string;
+  arrayName: string;
+  parentTypeLabel: string;
+  properties?: FinalFieldInput[] | undefined;
 };

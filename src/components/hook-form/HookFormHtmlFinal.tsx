@@ -4,6 +4,13 @@ import { finalFormValues } from "../../utils/values";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { finalSchema } from "../../utils/schemas";
 
+/*
+
+  1.list input schema 결정
+   -form getValue와 실질적으로 사용하는 값과의 갭이 있음
+
+*/
+
 export default function HookFormHtmlFinal(): React.ReactNode {
   const {
     register,

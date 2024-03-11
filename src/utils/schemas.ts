@@ -53,4 +53,66 @@ export const basicInfoWithArrayShapeSchema = yup.object().shape({
 export const finalSchema = yup.object().shape({
   name: yup.string().required("이름은 필수값입니다.").max(10),
   email: yup.string().required("이메일은 필수값입니다").email(),
+  inputFields: yup
+    .array()
+    .of(
+      yup.object().shape({
+        name: yup.string().required(),
+        length: yup.number(),
+        dataType: yup.string().required(),
+        requireYn: yup.string().required(),
+        description: yup.string(),
+        useAlarm: yup.boolean(),
+        categoryLabel: yup.string(),
+        depth: yup.number().required(),
+        arrayName: yup.string().required(),
+        parentTypeLabel: yup.string().required(),
+        properties: yup.array().of(
+          yup.object().shape({
+            name: yup.string().required(),
+            length: yup.number().typeError("숫자가 아닙니다"),
+            dataType: yup.string().required(),
+            requireYn: yup.string().required(),
+            description: yup.string(),
+            useAlarm: yup.boolean(),
+            categoryLabel: yup.string(),
+            depth: yup.number().required(),
+            arrayName: yup.string().required(),
+            parentTypeLabel: yup.string().required(),
+          })
+        ),
+      })
+    )
+    .required(),
+  outputFields: yup
+    .array()
+    .of(
+      yup.object().shape({
+        name: yup.string().required(),
+        length: yup.number(),
+        dataType: yup.string().required(),
+        requireYn: yup.string().required(),
+        description: yup.string(),
+        useAlarm: yup.boolean(),
+        categoryLabel: yup.string(),
+        depth: yup.number().required(),
+        arrayName: yup.string().required(),
+        parentTypeLabel: yup.string().required(),
+        properties: yup.array().of(
+          yup.object().shape({
+            name: yup.string().required(),
+            length: yup.number().typeError("숫자가 아닙니다"),
+            dataType: yup.string().required(),
+            requireYn: yup.string().required(),
+            description: yup.string(),
+            useAlarm: yup.boolean(),
+            categoryLabel: yup.string(),
+            depth: yup.number().required(),
+            arrayName: yup.string().required(),
+            parentTypeLabel: yup.string().required(),
+          })
+        ),
+      })
+    )
+    .required(),
 });
