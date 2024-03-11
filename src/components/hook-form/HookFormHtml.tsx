@@ -130,8 +130,31 @@ export default function HookFormHtml() {
         <div className="div-input">
           <textarea
             className="textarea"
-            {...register("description")}
+            {...register("description", {
+              validate: (value, allFormValue) => {
+                // true를 리턴하거나 false, message를 반환
+                console.log(allFormValue);
+                if (value) {
+                  if (value.length < 3) {
+                    return "description 3 min length";
+                  } else if (value.length > 11) {
+                    return "description 10 max length";
+                  } else {
+                    return true;
+                  }
+                } else {
+                  return "required description";
+                }
+              },
+            })}
           ></textarea>
+          {errors && errors.description ? (
+            <span className="error_message">
+              {errors.description.message
+                ? errors.description.message
+                : "description error"}
+            </span>
+          ) : null}
         </div>
 
         <div className="right" style={{ width: 580 }}>
