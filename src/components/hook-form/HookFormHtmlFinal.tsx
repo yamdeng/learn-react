@@ -102,9 +102,13 @@ export default function HookFormHtmlFinal(): React.ReactNode {
               <td>category</td>
               <td>
                 <input type="text" placeholder="NAME" name="name" />
+                <span className="error_message">이름은 필수값입니다</span>
               </td>
               <td>
                 <input type="text" placeholder="LENGTH" name="length" />
+                <span className="error_message">
+                  이름은 필수값입니다. 이름은 필수값입니다
+                </span>
               </td>
               <td>
                 <select name="data-type" id="data-type" className="select">

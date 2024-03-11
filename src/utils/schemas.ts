@@ -51,6 +51,6 @@ export const basicInfoWithArrayShapeSchema = yup.object().shape({
 });
 
 export const finalSchema = yup.object().shape({
-  name: yup.string().required().max(10),
-  email: yup.string().required().email(),
+  name: yup.string().required("이름은 필수값입니다.").max(10),
+  email: yup.string().required("이메일은 필수값입니다").email(),
 });

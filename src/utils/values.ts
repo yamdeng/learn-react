@@ -22,5 +22,5 @@ export const inputListDefaultValues = {
 
 export const finalFormValues = {
   name: "",
-  email: "OBJECT",
+  email: "",
 };
