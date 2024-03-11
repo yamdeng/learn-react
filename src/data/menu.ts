@@ -1,6 +1,6 @@
 import ExampleBasicFormOne from "../components/example/ExampleBasicFormOne.tsx";
 import ExampleBasicFormTwo from "../components/example/ExampleBasicFormTwo.tsx";
-import ExambleFormList from "../components/example/ExambleFormList.tsx";
+import ExampleFormList from "../components/example/ExampleFormList.tsx";
 import ExampleFormTable from "../components/example/ExampleFormTable.tsx";
 import ExampleFormNestedTable from "../components/example/ExampleFormNestedTable.tsx";
 
@@ -10,6 +10,18 @@ import ExampleMuiBasicFormTwo from "../components/example/mui/ExampleMuiBasicFor
 import ExampleMuiBasicFormTable from "../components/example/mui/ExampleMuiBasicFormTable.tsx";
 import ExampleMuiBasicFormNestedTable from "../components/example/mui/ExampleMuiBasicFormNestedTable.tsx";
 import ExampleMuiFormModalPage from "../components/example/mui/ExampleMuiFormModalPage.tsx";
+
+import HookFormHtml from "../components/hook-form/HookFormHtml.tsx";
+import HookFormHtmlArray from "../components/hook-form/HookFormHtmlArray.tsx";
+import HookFormHtmlArrayYup from "../components/hook-form/HookFormHtmlArrayYup.tsx";
+import HookFormHtmlTotal from "../components/hook-form/HookFormHtmlTotal.tsx";
+import HookFormHtmlYup from "../components/hook-form/HookFormHtmlYup.tsx";
+import HookFormMui from "../components/hook-form/HookFormMui.tsx";
+import HookFormMuiArray from "../components/hook-form/HookFormMuiArray.tsx";
+import HookFormMuiArrayYup from "../components/hook-form/HookFormMuiArrayYup.tsx";
+import HookFormMuiTotal from "../components/hook-form/HookFormMuiTotal.tsx";
+import HookFormMuiYup from "../components/hook-form/HookFormMuiYup.tsx";
+
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -27,9 +39,9 @@ const menu: Menu[] = [
         component: ExampleBasicFormTwo,
       },
       {
-        title: "ExambleFormList",
+        title: "ExampleFormList",
         path: "example/list",
-        component: ExambleFormList,
+        component: ExampleFormList,
       },
       {
         title: "ExampleFormTable",
@@ -75,6 +87,61 @@ const menu: Menu[] = [
         title: "ExampleMuiFormModalPage",
         path: "example-mui/modal",
         component: ExampleMuiFormModalPage,
+      },
+    ],
+  },
+  {
+    title: "hook-form",
+    children: [
+      {
+        title: "HookFormHtml",
+        path: "hook-form/html",
+        component: HookFormHtml,
+      },
+      {
+        title: "HookFormMui",
+        path: "hook-form/mui",
+        component: HookFormMui,
+      },
+      {
+        title: "HookFormHtmlYup",
+        path: "hook-form/html-yup",
+        component: HookFormHtmlYup,
+      },
+      {
+        title: "HookFormMuiYup",
+        path: "hook-form/mui-yup",
+        component: HookFormMuiYup,
+      },
+      {
+        title: "HookFormHtmlArray",
+        path: "hook-form/html-array",
+        component: HookFormHtmlArray,
+      },
+      {
+        title: "HookFormMuiArray",
+        path: "hook-form/html-mui",
+        component: HookFormMuiArray,
+      },
+      {
+        title: "HookFormHtmlArrayYup",
+        path: "hook-form/html-array-yup",
+        component: HookFormHtmlArrayYup,
+      },
+      {
+        title: "HookFormMuiArrayYup",
+        path: "hook-form/mui-array-yup",
+        component: HookFormMuiArrayYup,
+      },
+      {
+        title: "HookFormHtmlTotal",
+        path: "hook-form/html-total",
+        component: HookFormHtmlTotal,
+      },
+      {
+        title: "HookFormMuiTotal",
+        path: "hook-form/mui-total",
+        component: HookFormMuiTotal,
       },
     ],
   },

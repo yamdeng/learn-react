@@ -1,4 +1,4 @@
-export default function ExambleFormList(): React.ReactNode {
+export default function ExampleFormList(): React.ReactNode {
   return (
     <>
       <div className="grid-root-container">
