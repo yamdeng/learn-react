@@ -27,5 +27,22 @@ export type BasicInfo = {
   job?: string;
   useAlarm: boolean;
   description?: string;
-  inputList: any;
+  inputList?: any;
+};
+
+export type NestedFormInfo = {
+  name: string;
+  length: number | null;
+  dataType: string;
+  requireYn: string;
+  description?: string | undefined;
+  checkedAlarm: boolean;
+};
+
+export type ArrayInfo = {
+  id: string;
+  name: string;
+  age: number | null;
+  email: string;
+  inputList: NestedFormInfo[];
 };

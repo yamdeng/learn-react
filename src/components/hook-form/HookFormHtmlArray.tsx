@@ -235,7 +235,7 @@ export default function HookFormHtmlArray() {
               <div className="div-input">
                 <input
                   type="number"
-                  placeholder="NAME"
+                  placeholder="length"
                   {...register(`inputList.${index}.length`, { required: true })}
                 />
               </div>

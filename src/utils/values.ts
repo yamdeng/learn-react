@@ -12,9 +12,9 @@ export const basicFormDefaultValues = {
 };
 
 export const inputListDefaultValues = {
-  name: "asdasdasd",
+  name: "",
   length: 10,
-  dataType: "object",
+  dataType: "OBJECT",
   requireYn: "Y",
   description: "",
   checkedAlarm: true,
