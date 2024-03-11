@@ -49,3 +49,8 @@ export const basicInfoWithArrayShapeSchema = yup.object().shape({
     .required()
     .min(1, "하나의 array는 추가해야합니다."),
 });
+
+export const finalSchema = yup.object().shape({
+  name: yup.string().required().max(10),
+  email: yup.string().required().email(),
+});

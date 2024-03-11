@@ -19,3 +19,8 @@ export const inputListDefaultValues = {
   description: "",
   checkedAlarm: true,
 };
+
+export const finalFormValues = {
+  name: "",
+  email: "OBJECT",
+};

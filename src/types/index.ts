@@ -46,3 +46,8 @@ export type ArrayInfo = {
   email: string;
   inputList: NestedFormInfo[];
 };
+
+export type FinalFormInput = {
+  name: string;
+  email: string;
+};
