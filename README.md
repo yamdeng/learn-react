@@ -15,3 +15,7 @@ yarn add @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fo
 ### mui install
 
 yarn add yarn add @mui/material @emotion/react @emotion/styled @fontsource/roboto @mui/icons-material
+
+### react-hook-form install
+
+yarn add react-hook-form @hookform/resolvers yup
