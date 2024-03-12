@@ -1,14 +1,18 @@
+import { useContext } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { FinalFormInput } from "../../../types";
 import { finalDefaultFieldInput } from "../../../utils/values";
 import { v4 as uuid } from "uuid";
 import PlainHtmlRow from "./PlainHtmlRow";
 import CollectionHtmlRow from "./CollectionHtmlRow";
+import { FieldListTypeContext } from "../../../utils/contexts";
 
 export default function FieldsHtmlTable(props: {
   rootArrayName: "inputFields" | "outputFields";
 }) {
   const { rootArrayName } = props;
+
+  const { ioType } = useContext(FieldListTypeContext);
 
   const { control } = useFormContext<FinalFormInput>();
   const { fields, append, remove } = useFieldArray({
@@ -34,6 +38,7 @@ export default function FieldsHtmlTable(props: {
       categoryLabel: categoryLabel,
       parentTypeLabel: "",
       arrayName: rootArrayName,
+      ioType: ioType,
     };
     append(newInfo);
   }

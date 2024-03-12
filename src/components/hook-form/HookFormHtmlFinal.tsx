@@ -1,14 +1,10 @@
-import { createContext } from "react";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import { FinalFormInput } from "../../types";
 import { finalFormValues } from "../../utils/values";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { finalSchema } from "../../utils/schemas";
 import FieldsHtmlTable from "./view/FieldsHtmlTable";
-
-const FieldListTypeContext = createContext<{ ioType: string }>({
-  ioType: "I",
-});
+import { FieldListTypeContext } from "../../utils/contexts";
 
 export default function HookFormHtmlFinal(): React.ReactNode {
   const methods = useForm<FinalFormInput>({

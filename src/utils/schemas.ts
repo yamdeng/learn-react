@@ -57,11 +57,12 @@ export const finalSchema = yup.object().shape({
     .array()
     .of(
       yup.object().shape({
+        dataType: yup.string().required(),
         name: yup.string().required(),
         length: yup.number().required().nullable(),
-        dataType: yup.string().required(),
+        plainType: yup.string(),
         requireYn: yup.string().required(),
-        description: yup.string().required(),
+        description: yup.string(),
         useAlarm: yup.boolean(),
         depth: yup.number().required(),
         categoryLabel: yup.string().required(),
@@ -70,11 +71,12 @@ export const finalSchema = yup.object().shape({
 
         properties: yup.array().of(
           yup.object().shape({
+            dataType: yup.string().required(),
             name: yup.string().required(),
             length: yup.number().required().nullable(),
-            dataType: yup.string().required(),
+            plainType: yup.string(),
             requireYn: yup.string().required(),
-            description: yup.string().required(),
+            description: yup.string(),
             useAlarm: yup.boolean(),
             depth: yup.number().required(),
             categoryLabel: yup.string().required(),
@@ -89,11 +91,12 @@ export const finalSchema = yup.object().shape({
     .array()
     .of(
       yup.object().shape({
+        dataType: yup.string().required(),
         name: yup.string().required(),
         length: yup.number().required().nullable(),
-        dataType: yup.string().required(),
+        plainType: yup.string(),
         requireYn: yup.string().required(),
-        description: yup.string().required(),
+        description: yup.string(),
         useAlarm: yup.boolean(),
         depth: yup.number().required(),
         categoryLabel: yup.string().required(),
@@ -102,11 +105,12 @@ export const finalSchema = yup.object().shape({
 
         properties: yup.array().of(
           yup.object().shape({
+            dataType: yup.string().required(),
             name: yup.string().required(),
             length: yup.number().required().nullable(),
-            dataType: yup.string().required(),
+            plainType: yup.string(),
             requireYn: yup.string().required(),
-            description: yup.string().required(),
+            description: yup.string(),
             useAlarm: yup.boolean(),
             depth: yup.number().required(),
             categoryLabel: yup.string().required(),

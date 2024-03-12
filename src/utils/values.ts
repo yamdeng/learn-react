@@ -32,6 +32,7 @@ export const finalDefaultFieldInput = {
   dataType: "",
   requireYn: "",
   description: "",
+  plainType: "",
   depth: null,
   categoryLabel: "",
   parentTypeLabel: "",

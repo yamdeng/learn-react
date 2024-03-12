@@ -59,8 +59,9 @@ export type FinalFieldInput = {
   length: number | null;
   dataType: string;
   requireYn: string;
-  description: string;
+  description?: string;
   useAlarm?: boolean;
+  plainType?: string;
   depth: number;
   categoryLabel: string;
   parentTypeLabel: string;
