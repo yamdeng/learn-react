@@ -64,7 +64,7 @@ export type FinalFieldInput = {
   plainType?: string;
   depth: number;
   categoryLabel: string;
-  parentTypeLabel: string;
+  parentTypeLabel: string | null;
   arrayName: string;
   properties?: FinalFieldInput[];
 };

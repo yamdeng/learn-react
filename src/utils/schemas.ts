@@ -66,7 +66,7 @@ export const finalSchema = yup.object().shape({
         useAlarm: yup.boolean(),
         depth: yup.number().required(),
         categoryLabel: yup.string().required(),
-        parentTypeLabel: yup.string().required(),
+        parentTypeLabel: yup.string().required().nullable(),
         arrayName: yup.string().required(),
 
         properties: yup.array().of(
@@ -80,7 +80,7 @@ export const finalSchema = yup.object().shape({
             useAlarm: yup.boolean(),
             depth: yup.number().required(),
             categoryLabel: yup.string().required(),
-            parentTypeLabel: yup.string().required(),
+            parentTypeLabel: yup.string().required().nullable(),
             arrayName: yup.string().required(),
           })
         ),
@@ -100,7 +100,7 @@ export const finalSchema = yup.object().shape({
         useAlarm: yup.boolean(),
         depth: yup.number().required(),
         categoryLabel: yup.string().required(),
-        parentTypeLabel: yup.string().required(),
+        parentTypeLabel: yup.string().required().nullable(),
         arrayName: yup.string().required(),
 
         properties: yup.array().of(
@@ -114,7 +114,7 @@ export const finalSchema = yup.object().shape({
             useAlarm: yup.boolean(),
             depth: yup.number().required(),
             categoryLabel: yup.string().required(),
-            parentTypeLabel: yup.string().required(),
+            parentTypeLabel: yup.string().required().nullable(),
             arrayName: yup.string().required(),
           })
         ),

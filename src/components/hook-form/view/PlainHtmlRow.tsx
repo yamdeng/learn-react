@@ -1,46 +1,95 @@
+import { useFormContext } from "react-hook-form";
+import { FinalFormInput, FinalFieldInput } from "../../../types";
+
 export default function PlainHtmlRow(props: {
   arrayFieldIndex: number;
   removeArrayField: (index: number) => void;
+  fieldInfo: FinalFieldInput;
+  arrayName: "inputFields" | "outputFields";
 }) {
-  const { arrayFieldIndex, removeArrayField } = props;
+  const { fieldInfo, arrayName, arrayFieldIndex, removeArrayField } = props;
+  const { depth, parentTypeLabel, categoryLabel } = fieldInfo;
+
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<FinalFormInput>();
+
   return (
     <tr>
-      <td>depth</td>
-      <td>category</td>
+      <td>{depth}</td>
       <td>
-        <input type="text" placeholder="NAME" name="name" />
-        <span className="error_message">이름은 필수값입니다</span>
+        {parentTypeLabel ? parentTypeLabel + categoryLabel : categoryLabel}
       </td>
       <td>
-        <input type="text" placeholder="LENGTH" name="length" />
-        <span className="error_message">
-          이름은 필수값입니다. 이름은 필수값입니다
-        </span>
+        <input
+          type="text"
+          placeholder="NAME"
+          {...register(`${arrayName}.${arrayFieldIndex}.name`)}
+        />
+        {errors[arrayName]?.[arrayFieldIndex]?.name?.message ? (
+          <span className="error_message">
+            {errors[arrayName]?.[arrayFieldIndex]?.name?.message}
+          </span>
+        ) : null}
       </td>
       <td>
-        <select name="data-type" id="data-type" className="select">
+        <input
+          type="number"
+          placeholder="LENGTH"
+          {...register(`${arrayName}.${arrayFieldIndex}.length`)}
+        />
+        {errors[arrayName]?.[arrayFieldIndex]?.length?.message ? (
+          <span className="error_message">
+            {errors[arrayName]?.[arrayFieldIndex]?.length?.message}
+          </span>
+        ) : null}
+      </td>
+      <td>
+        <select
+          {...register(`${arrayName}.${arrayFieldIndex}.plainType`)}
+          className="select"
+        >
           <option value="">타입</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+          <option value="String">string</option>
+          <option value="Number">number</option>
+          <option value="BigInteger">bigint</option>
+          <option value="Boolean">boolean</option>
         </select>
+        {errors[arrayName]?.[arrayFieldIndex]?.plainType?.message ? (
+          <span className="error_message">
+            {errors[arrayName]?.[arrayFieldIndex]?.plainType?.message}
+          </span>
+        ) : null}
       </td>
       <td>
-        <select name="required" id="required" className="select">
+        <select
+          {...register(`${arrayName}.${arrayFieldIndex}.requireYn`)}
+          className="select"
+        >
           <option value="">필수여부</option>
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+          <option value="Y">예</option>
+          <option value="N">아니오</option>
         </select>
+        {errors[arrayName]?.[arrayFieldIndex]?.requireYn?.message ? (
+          <span className="error_message">
+            {errors[arrayName]?.[arrayFieldIndex]?.requireYn?.message}
+          </span>
+        ) : null}
       </td>
       <td>
-        <input type="text" placeholder="DESCRIPTION" name="description" />
+        <input
+          type="text"
+          placeholder="DESCRIPTION"
+          {...register(`${arrayName}.${arrayFieldIndex}.description`)}
+        />
       </td>
       <td style={{ textAlign: "center" }}>
         <label className="switch">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            {...register(`${arrayName}.${arrayFieldIndex}.useAlarm`)}
+          />
           <span className="slider round"></span>
         </label>
       </td>

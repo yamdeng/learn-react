@@ -36,7 +36,7 @@ export default function FieldsHtmlTable(props: {
       dataType,
       depth: 1,
       categoryLabel: categoryLabel,
-      parentTypeLabel: "",
+      parentTypeLabel: null,
       arrayName: rootArrayName,
       ioType: ioType,
     };
@@ -115,6 +115,8 @@ export default function FieldsHtmlTable(props: {
                   key={id}
                   arrayFieldIndex={index}
                   removeArrayField={removeArrayField}
+                  fieldInfo={fieldInfo}
+                  arrayName={rootArrayName as "inputFields"}
                 />
               );
             } else {
