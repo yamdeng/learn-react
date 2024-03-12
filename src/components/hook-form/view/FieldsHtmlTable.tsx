@@ -125,6 +125,8 @@ export default function FieldsHtmlTable(props: {
                   key={id}
                   arrayFieldIndex={index}
                   removeArrayField={removeArrayField}
+                  fieldInfo={fieldInfo}
+                  arrayName={rootArrayName as "inputFields"}
                 />
               );
             }
