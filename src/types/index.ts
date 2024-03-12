@@ -56,14 +56,14 @@ export type FinalFormInput = {
 
 export type FinalFieldInput = {
   name: string;
-  length?: number | undefined;
+  length: number | null;
   dataType: string;
   requireYn: string;
-  description?: string | undefined;
-  useAlarm?: boolean | undefined;
+  description: string;
+  useAlarm?: boolean;
   depth: number;
   categoryLabel: string;
-  arrayName: string;
   parentTypeLabel: string;
-  properties?: FinalFieldInput[] | undefined;
+  arrayName: string;
+  properties?: FinalFieldInput[];
 };

@@ -58,27 +58,28 @@ export const finalSchema = yup.object().shape({
     .of(
       yup.object().shape({
         name: yup.string().required(),
-        length: yup.number(),
+        length: yup.number().required().nullable(),
         dataType: yup.string().required(),
         requireYn: yup.string().required(),
-        description: yup.string(),
+        description: yup.string().required(),
         useAlarm: yup.boolean(),
-        categoryLabel: yup.string(),
         depth: yup.number().required(),
-        arrayName: yup.string().required(),
+        categoryLabel: yup.string().required(),
         parentTypeLabel: yup.string().required(),
+        arrayName: yup.string().required(),
+
         properties: yup.array().of(
           yup.object().shape({
             name: yup.string().required(),
-            length: yup.number().typeError("숫자가 아닙니다"),
+            length: yup.number().required().nullable(),
             dataType: yup.string().required(),
             requireYn: yup.string().required(),
-            description: yup.string(),
+            description: yup.string().required(),
             useAlarm: yup.boolean(),
-            categoryLabel: yup.string(),
             depth: yup.number().required(),
-            arrayName: yup.string().required(),
+            categoryLabel: yup.string().required(),
             parentTypeLabel: yup.string().required(),
+            arrayName: yup.string().required(),
           })
         ),
       })
@@ -89,27 +90,28 @@ export const finalSchema = yup.object().shape({
     .of(
       yup.object().shape({
         name: yup.string().required(),
-        length: yup.number(),
+        length: yup.number().required().nullable(),
         dataType: yup.string().required(),
         requireYn: yup.string().required(),
-        description: yup.string(),
+        description: yup.string().required(),
         useAlarm: yup.boolean(),
-        categoryLabel: yup.string(),
         depth: yup.number().required(),
-        arrayName: yup.string().required(),
+        categoryLabel: yup.string().required(),
         parentTypeLabel: yup.string().required(),
+        arrayName: yup.string().required(),
+
         properties: yup.array().of(
           yup.object().shape({
             name: yup.string().required(),
-            length: yup.number().typeError("숫자가 아닙니다"),
+            length: yup.number().required().nullable(),
             dataType: yup.string().required(),
             requireYn: yup.string().required(),
-            description: yup.string(),
+            description: yup.string().required(),
             useAlarm: yup.boolean(),
-            categoryLabel: yup.string(),
             depth: yup.number().required(),
-            arrayName: yup.string().required(),
+            categoryLabel: yup.string().required(),
             parentTypeLabel: yup.string().required(),
+            arrayName: yup.string().required(),
           })
         ),
       })

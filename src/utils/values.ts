@@ -24,5 +24,4 @@ export const finalFormValues = {
   name: "",
   email: "",
   inputFields: [],
-  outputFields: [],
 };
