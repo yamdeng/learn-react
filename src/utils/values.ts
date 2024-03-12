@@ -25,3 +25,15 @@ export const finalFormValues = {
   email: "",
   inputFields: [],
 };
+
+export const finalDefaultFieldInput = {
+  name: "",
+  length: null,
+  dataType: "",
+  requireYn: "",
+  description: "",
+  depth: null,
+  categoryLabel: "",
+  parentTypeLabel: "",
+  arrayName: "",
+};
