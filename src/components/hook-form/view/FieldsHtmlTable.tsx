@@ -62,6 +62,7 @@ export default function FieldsHtmlTable(props: {
         }}
       >
         <button
+          type="button"
           className="button button-info"
           style={{ padding: "5px 8px" }}
           onClick={() => addRow("PLAIN")}
@@ -69,6 +70,7 @@ export default function FieldsHtmlTable(props: {
           [+Field]
         </button>
         <button
+          type="button"
           className="button button-success"
           style={{ padding: "5px 8px" }}
           onClick={() => addRow("OBJECT")}
@@ -76,6 +78,7 @@ export default function FieldsHtmlTable(props: {
           [+Object]
         </button>
         <button
+          type="button"
           className="button button-success"
           style={{ padding: "5px 8px" }}
           onClick={() => addRow("LIST")}

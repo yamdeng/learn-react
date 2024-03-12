@@ -8,6 +8,8 @@ import { FieldListTypeContext } from "../../utils/contexts";
 
 export default function HookFormHtmlFinal(): React.ReactNode {
   const methods = useForm<FinalFormInput>({
+    mode: "onSubmit",
+    reValidateMode: "onSubmit",
     defaultValues: finalFormValues,
     resolver: yupResolver(finalSchema),
   });
@@ -73,7 +75,9 @@ export default function HookFormHtmlFinal(): React.ReactNode {
         </FieldListTypeContext.Provider>
 
         <div className="table-container right">
-          <button className="button button-cancel">취소</button>
+          <button type="reset" className="button button-cancel">
+            취소
+          </button>
           <button type="submit" className="button button-info">
             저장
           </button>

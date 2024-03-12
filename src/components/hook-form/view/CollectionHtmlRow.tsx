@@ -104,18 +104,21 @@ export default function CollectionHtmlRow(props: {
         </td>
         <td colSpan={2}>
           <button
+            type="button"
             className="button button-info"
             onClick={() => addRowChild("PLAIN")}
           >
             [+Field]
           </button>
           <button
+            type="button"
             className="button button-success"
             onClick={() => addRowChild("OBJECT")}
           >
             [+Object]
           </button>
           <button
+            type="button"
             className="button button-success"
             onClick={() => addRowChild("LIST")}
           >
@@ -124,6 +127,7 @@ export default function CollectionHtmlRow(props: {
         </td>
         <td>
           <button
+            type="button"
             className="button button-cancel"
             onClick={() => removeArrayField(arrayFieldIndex)}
           >

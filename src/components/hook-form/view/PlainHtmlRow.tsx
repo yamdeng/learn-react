@@ -95,6 +95,7 @@ export default function PlainHtmlRow(props: {
       </td>
       <td>
         <button
+          type="button"
           className="button button-cancel"
           onClick={() => removeArrayField(arrayFieldIndex)}
         >
