@@ -195,6 +195,7 @@ export default function ExampleFormNestedTable(): React.ReactNode {
             <td colSpan={2}>
               <button className="button button-info">[+Field]</button>
               <button className="button button-success">[+List]</button>
+              <button className="button button-success">[+Object]</button>
             </td>
             <td>
               <button className="button button-cancel">취소</button>
