@@ -23,6 +23,7 @@ import HookFormMuiTotal from "../components/hook-form/HookFormMuiTotal.tsx";
 import HookFormMuiYup from "../components/hook-form/HookFormMuiYup.tsx";
 
 import HookFormHtmlFinal from "../components/hook-form/HookFormHtmlFinal.tsx";
+import HookFormHtmlControllerFinal from "../components/hook-form/HookFormHtmlControllerFinal.tsx";
 import HookFormMuiFinal from "../components/hook-form/HookFormMuiFinal.tsx";
 
 import { Menu } from "../types/index.ts";
@@ -85,6 +86,11 @@ const menu: Menu[] = [
         title: "HookFormHtmlFinal",
         path: "hook-form/html-final",
         component: HookFormHtmlFinal,
+      },
+      {
+        title: "HookFormHtmlControllerFinal",
+        path: "hook-form/html-final-controller",
+        component: HookFormHtmlControllerFinal,
       },
       {
         title: "HookFormMuiFinal",
