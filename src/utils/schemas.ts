@@ -1,6 +1,24 @@
 import * as yup from "yup";
 import { EMAIL_PATTERN } from "./pattern";
 
+export const customPropertiesNameValidate = yup
+  .string()
+  .required()
+  .test(
+    "customPropertiesNameValidate",
+    "properties name custom error",
+    (value, context) => {
+      const { from, parent } = context;
+      const fromGeneric = from as { value: Record<string, unknown> }[];
+      console.log(from);
+      console.log(parent);
+      const { email } = fromGeneric[fromGeneric.length - 1].value;
+      console.log(value);
+      console.log(email);
+      return true;
+    }
+  );
+
 export const basicInfoSchema = yup.object({
   id: yup.string().required("id는 필수입니다."),
   name: yup.string().required().min(5).max(10),
@@ -106,7 +124,7 @@ export const finalSchema = yup.object().shape({
         properties: yup.array().of(
           yup.object().shape({
             dataType: yup.string().required(),
-            name: yup.string().required(),
+            name: customPropertiesNameValidate,
             length: yup.number().required().nullable(),
             plainType: yup.string(),
             requireYn: yup.string().required(),
