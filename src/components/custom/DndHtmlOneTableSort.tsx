@@ -45,29 +45,29 @@ function TableRow(props: any) {
         `hover step 1 === dragIndex : ${dragIndex} hoverIndex : ${hoverIndex}`
       );
 
-      // Don't replace items with themselves
+      // 같으면 아무것도 하지 않음
       if (dragIndex === hoverIndex) {
         return;
       }
 
-      // Determine rectangle on screen
+      // drop(hover)가 되는 대상의 screen top을 가지고옴
       const hoverBoundingRect = ref.current?.getBoundingClientRect();
 
-      // Get vertical middle
+      // bottom - top / 2는 현재 drop(hover) 대상 높이의 반이됨
       const hoverMiddleY =
         (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
-      // Determine mouse position
+      // (?)
       const clientOffset = monitor.getClientOffset();
 
       // Get pixels to the top
       const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
+      console.debug(`hover step 2-1 hoverMiddleY : ${hoverMiddleY}`);
       console.debug(
-        `hover step 2-1 === hoverBoundingRect.top : ${hoverBoundingRect.top}`
+        `hover step 2-2 clientOffset.y : ${(clientOffset as XYCoord).y}`
       );
-
-      console.debug(`hover step 2-2 === clientOffset.y : ${clientOffset?.y}`);
+      console.debug(`hover step 2-3 hoverClientY : ${hoverClientY}`);
 
       // Only perform the move when the mouse has crossed half of the items height
       // When dragging downwards, only move when the cursor is below 50%
