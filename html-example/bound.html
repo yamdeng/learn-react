@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        padding-bottom: 1000px;
+        margin: auto;
+      }
+
+      div {
+        width: 400px;
+        height: 200px;
+        padding: 20px;
+        margin: 50px auto;
+        background: purple;
+      }
+
+      div#example {
+        width: 400px;
+        height: 200px;
+        padding: 20px;
+        margin: 50px auto;
+        background: purple;
+      }
+
+      p {
+        margin: 0;
+      }
+    </style>
+    <script>
+      function init() {
+        let elem = document.getElementById("firstDiv");
+        let rect = elem.getBoundingClientRect();
+        for (var key in rect) {
+          if (typeof rect[key] !== "function") {
+            let para = document.createElement("p");
+            para.textContent = `${key} : ${rect[key]}`;
+            document.body.appendChild(para);
+          }
+        }
+
+        function update() {
+          const container = document.getElementById("controls");
+          const elem = document.querySelector("div");
+          const rect = elem.getBoundingClientRect();
+
+          container.innerHTML = "";
+          for (let key in rect) {
+            if (typeof rect[key] !== "function") {
+              let para = document.createElement("p");
+              para.textContent = `${key} : ${rect[key]}`;
+              container.appendChild(para);
+            }
+          }
+        }
+
+        document.addEventListener("scroll", update);
+        update();
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <div></div>
+    <div id="firstDiv"></div>
+
+    <!-- <div></div>
+    <div id="example"></div>
+    <div id="controls"></div> -->
+  </body>
+</html>

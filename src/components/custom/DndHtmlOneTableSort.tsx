@@ -17,7 +17,7 @@ interface DragItem {
 
 function TableRow(props: any) {
   const { info, arrayIndex, moveCard } = props;
-  console.log(info);
+  // console.debug(info);
   // debugger;
   const { id, depth, category, type } = info;
 
@@ -34,11 +34,16 @@ function TableRow(props: any) {
       };
     },
     hover(item: DragItem, monitor) {
+      console.debug("hover event call test start");
       if (!ref.current) {
         return;
       }
       const dragIndex = item.arrayIndex;
       const hoverIndex = arrayIndex;
+
+      console.debug(
+        `hover step 1 === dragIndex : ${dragIndex} hoverIndex : ${hoverIndex}`
+      );
 
       // Don't replace items with themselves
       if (dragIndex === hoverIndex) {
@@ -57,6 +62,12 @@ function TableRow(props: any) {
 
       // Get pixels to the top
       const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
+
+      console.debug(
+        `hover step 2-1 === hoverBoundingRect.top : ${hoverBoundingRect.top}`
+      );
+
+      console.debug(`hover step 2-2 === clientOffset.y : ${clientOffset?.y}`);
 
       // Only perform the move when the mouse has crossed half of the items height
       // When dragging downwards, only move when the cursor is below 50%
@@ -118,7 +129,7 @@ export default function DndHtmlOneTableSort() {
   const [rows, setRows] = useState(basicSimpleList);
 
   const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
-    console.log(`dragIndex : ${dragIndex}, hoverIndex : ${hoverIndex}`);
+    console.info(`final dragIndex : ${dragIndex}, hoverIndex : ${hoverIndex}`);
     setRows((prevRows: any[]) =>
       update(prevRows, {
         $splice: [
