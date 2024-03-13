@@ -3,9 +3,9 @@ import { useFieldArray, useFormContext } from "react-hook-form";
 import { FinalFormInput } from "../../../types";
 import { finalDefaultFieldInput } from "../../../utils/values";
 import { v4 as uuid } from "uuid";
+import { FieldListTypeContext } from "../../../utils/contexts";
 import PlainHtmlRow from "./PlainHtmlRow";
 import CollectionHtmlRow from "./CollectionHtmlRow";
-import { FieldListTypeContext } from "../../../utils/contexts";
 
 export default function FieldsHtmlTable(props: {
   rootArrayName: "inputFields" | "outputFields";
