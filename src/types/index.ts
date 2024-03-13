@@ -15,3 +15,13 @@ export interface Menu {
   title: string;
   children: MenuChild[];
 }
+
+export interface BasicRowInfo {
+  id: string;
+  depth: number;
+  category: string;
+  type: string;
+  name: string;
+}
+
+export interface DragBasicRowInfo extends BasicRowInfo {}
