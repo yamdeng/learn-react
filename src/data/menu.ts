@@ -15,6 +15,17 @@ import SortBasic from "../components/drag/sort-basic/SortBasic";
 import SortCancel from "../components/drag/sort-cancel/SortCancel";
 import SortStress from "../components/drag/sort-stress/SortStress";
 import StressTest from "../components/drag/stress-test/StressTest";
+import ExampleHtmlTable from "../components/example/ExampleHtmlTable.tsx";
+import ExampleMuiTable from "../components/example/ExampleMuiTable.tsx";
+import DndHtmlOneTableSort from "../components/custom/DndHtmlOneTableSort.tsx";
+import DndHtmlTwoTableSortDrop from "../components/custom/DndHtmlTwoTableSortDrop.tsx";
+import DndMuiOneTableSort from "../components/custom/DndMuiOneTableSort.tsx";
+import DndMuiTwoTableSortDrop from "../components/custom/DndMuiTwoTableSortDrop.tsx";
+import DndHtmlMetaDrop from "../components/custom/DndHtmlMetaDrop.tsx";
+import DndMuiMetaDrop from "../components/custom/DndMuiMetaDrop.tsx";
+import DndHtmlNestedFinal from "../components/custom/DndHtmlNestedFinal.tsx";
+import DndMuiNestedFinal from "../components/custom/DndMuiNestedFinal.tsx";
+
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -110,6 +121,67 @@ const menu: Menu[] = [
         title: "Tutorial",
         path: "darg/tutorial",
         component: Tutorial,
+      },
+    ],
+  },
+  {
+    title: "Example",
+    children: [
+      {
+        title: "html-table",
+        path: "example/html-table",
+        component: ExampleHtmlTable,
+      },
+      {
+        title: "mui-table",
+        path: "example/mui-table",
+        component: ExampleMuiTable,
+      },
+    ],
+  },
+  {
+    title: "Custom",
+    children: [
+      {
+        title: "html-one-table-sort",
+        path: "custom/html-one-table-sort",
+        component: DndHtmlOneTableSort,
+      },
+      {
+        title: "html-two-table-sort",
+        path: "custom/html-two-table-sort",
+        component: DndHtmlTwoTableSortDrop,
+      },
+      {
+        title: "mui-one-table-sort",
+        path: "custom/mui-one-table-sort",
+        component: DndMuiOneTableSort,
+      },
+      {
+        title: "mui-two-table-sort",
+        path: "custom/mui-two-table-sort",
+        component: DndMuiTwoTableSortDrop,
+      },
+      {
+        title: "html-meta-drop",
+        path: "custom/html-meta-drop",
+        component: DndHtmlMetaDrop,
+      },
+      {
+        title: "mui-meta-drop",
+        path: "custom/mui-meta-drop",
+        component: DndMuiMetaDrop,
+      },
+
+      {
+        title: "html-nested-dnd",
+        path: "custom/html-nested-dnd",
+        component: DndHtmlNestedFinal,
+      },
+      {
+        title: "mui-nested-dnd",
+        path: "custom/mui-nested-dnd",
+        component: DndMuiNestedFinal,
       },
     ],
   },
