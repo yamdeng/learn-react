@@ -7,7 +7,6 @@ import update from "immutability-helper";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { basicSimpleList } from "../../data/default-datas";
-// import { BasicRowInfo } from "../../types";
 
 interface DragItem {
   arrayIndex: number;
@@ -34,62 +33,67 @@ function TableRow(props: any) {
       };
     },
     hover(item: DragItem, monitor) {
+      // item과 monitor를 사실 동일함
+      // monitor : DropTargetMonitor(https://react-dnd.github.io/react-dnd/docs/api/drop-target-monitor)
       console.debug("hover event call test start");
+
+      console.debug(`hover item : ${JSON.stringify(item)}`);
+      console.debug(`hover monitor : ${monitor}`);
       if (!ref.current) {
         return;
       }
       const dragIndex = item.arrayIndex;
       const hoverIndex = arrayIndex;
 
-      console.debug(
-        `hover step 1 === dragIndex : ${dragIndex} hoverIndex : ${hoverIndex}`
-      );
+      console.info(`dragIndex : ${dragIndex} hoverIndex : ${hoverIndex}`);
 
       // 같으면 아무것도 하지 않음
       if (dragIndex === hoverIndex) {
         return;
       }
 
-      // drop(hover)가 되는 대상의 screen top을 가지고옴
+      // drop(hover)가 되는 대상의 browser top을 가지고옴
       const hoverBoundingRect = ref.current?.getBoundingClientRect();
 
-      // bottom - top / 2는 현재 drop(hover) 대상 높이의 반이됨
-      const hoverMiddleY =
-        (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      // hoverBoundingRect.top : 스크롤 기준으로 브라우저를 기준으로 얼마만큼 수직으로 떨어져있는지
+      // hoverBoundingRect.bottom : hoverBoundingRect.top + hoverBoundingRect.height ===> top과 엘리먼트의 높이(즉, 엘리먼트의 최하단이 브라우저를 기준으로 얼마만큼 수직으로 떨어져있는지)
+      const dropElementHeight =
+        hoverBoundingRect.bottom - hoverBoundingRect.top;
 
-      // (?)
+      // hoverBoundingRect.height == hoverBoundingRect.bottom - hoverBoundingRect.top
+      console.debug(`hoverBoundingRect.top : ${hoverBoundingRect.top}`);
+      console.debug(`hoverBoundingRect.height : ${hoverBoundingRect.height}`);
+      console.debug(`dropElementHeight : ${dropElementHeight}`);
+
+      // hoverMiddleY : drop element height / 2 : drop 대상의 높이 / 2
+      const hoverMiddleY = dropElementHeight / 2;
+
+      // monitor : 대상은 드래그한 정보를 의미함
+      // monitor.getClientOffset() : mouse 좌표를 의미하는데 getBoundingClientRect와 유사하며 좌표 자체가 element를 기준으로 하는지 아니면 mouse x/y를 하는지 다름
       const clientOffset = monitor.getClientOffset();
+      console.debug(`clientOffset : ${JSON.stringify(clientOffset)}`);
 
-      // Get pixels to the top
+      // drag하는 대상의 마우스 y 좌표와 - drop하는 대상의 top을 뺌 : drop 대상의 높이를 기준으로 어느 Y 좌표에 해당하는지 추출
       const hoverClientY = (clientOffset as XYCoord).y - hoverBoundingRect.top;
 
-      console.debug(`hover step 2-1 hoverMiddleY : ${hoverMiddleY}`);
-      console.debug(
-        `hover step 2-2 clientOffset.y : ${(clientOffset as XYCoord).y}`
-      );
-      console.debug(`hover step 2-3 hoverClientY : ${hoverClientY}`);
+      console.debug(`hoverMiddleY : ${hoverMiddleY}`);
+      console.debug(`hoverClientY : ${hoverClientY}`);
 
-      // Only perform the move when the mouse has crossed half of the items height
-      // When dragging downwards, only move when the cursor is below 50%
-      // When dragging upwards, only move when the cursor is above 50%
-
-      // Dragging downwards
+      // drop 대상이 아래에 있는 경우 : 마우스 Y 좌표가 엘리먼트의 /2 좌표보다 클 경우에만 move를 해야 함
       if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
         return;
       }
 
-      // Dragging upwards
+      // drop 대상이 위에 있는 경우 : 마우스 Y 좌표가 엘리먼트의 /2의 좌표보다 작을 경우에만 move를 해야 함
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
 
-      // Time to actually perform the action
+      console.info("moveCard call");
+
       moveCard(dragIndex, hoverIndex);
 
-      // Note: we're mutating the monitor item here!
-      // Generally it's better to avoid mutations,
-      // but it's good here for the sake of performance
-      // to avoid expensive index searches.
+      // item(drag) index를 hoverIndex로 변경한다
       item.arrayIndex = hoverIndex;
     },
   });
@@ -142,10 +146,10 @@ export default function DndHtmlOneTableSort() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div>
+      <div style={{ marginTop: 0 }}>
         <table style={{ width: "100%" }}>
           <thead>
-            <tr>
+            <tr style={{ height: 30 }}>
               <th style={{ width: 115 }}>depth</th>
               <th style={{ width: 115 }}>구분</th>
               <th style={{ width: 115 }}>타입</th>
