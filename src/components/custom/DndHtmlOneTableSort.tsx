@@ -3,6 +3,7 @@ import { useRef } from "react";
 import type { Identifier, XYCoord } from "dnd-core";
 import { useDrag, useDrop } from "react-dnd";
 import update from "immutability-helper";
+import { produce } from "immer";
 
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -132,17 +133,31 @@ function TableRow(props: any) {
 export default function DndHtmlOneTableSort() {
   const [rows, setRows] = useState(basicSimpleList);
 
-  const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
-    console.info(`final dragIndex : ${dragIndex}, hoverIndex : ${hoverIndex}`);
-    setRows((prevRows: any[]) =>
-      update(prevRows, {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, prevRows[dragIndex]],
-        ],
-      })
-    );
-  }, []);
+  const moveCard = useCallback(
+    (dragIndex: number, hoverIndex: number) => {
+      console.info(
+        `final dragIndex : ${dragIndex}, hoverIndex : ${hoverIndex}`
+      );
+
+      // drag를 삭제하고 현재 drag에 item을 추가하는 방법ㄴ
+      setRows((prevRows: any[]) =>
+        update(prevRows, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, prevRows[dragIndex]],
+          ],
+        })
+      );
+
+      // index를 switch하는 방법
+      // const newRows = produce(rows, (draft) => {
+      //   draft[dragIndex] = rows[hoverIndex];
+      //   draft[hoverIndex] = rows[dragIndex];
+      // });
+      // setRows(newRows);
+    },
+    [rows]
+  );
 
   return (
     <DndProvider backend={HTML5Backend}>
