@@ -22,24 +22,28 @@ interface DropResult {
 }
 
 export const Box: FC<BoxProps> = function Box({ name }) {
-  const [{ isDragging }, drag] = useDrag(() => ({
-    type: ItemTypes.BOX,
-    item: { name },
+  const [{ isDragging, handlerId }, drag] = useDrag(() => ({
+    type: ItemTypes.BOX + '',
+    item: { name, test : 'aaa' },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
+      console.debug(`item : ${JSON.stringify(item)}`)
+      console.debug(`dropResult : ${JSON.stringify(dropResult)}`)
       if (item && dropResult) {
-        alert(`You dropped ${item.name} into ${dropResult.name}!`);
+        console.debug(`You dropped ${item.name} into ${dropResult.name}!`);
       }
     },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-      handlerId: monitor.getHandlerId(),
-    }),
+    collect: (monitor) => {
+      return {        
+        isDragging: monitor.isDragging(),
+        handlerId: monitor.getHandlerId(),
+      }
+    },
   }));
 
   const opacity = isDragging ? 0.4 : 1;
   return (
-    <div ref={drag} style={{ ...style, opacity }} data-testid={`box`}>
+    <div ref={drag} style={{ ...style, opacity }} data-testid={handlerId}>
       {name}
     </div>
   );

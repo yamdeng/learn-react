@@ -18,18 +18,20 @@ const style: CSSProperties = {
 
 export const Dustbin: FC = () => {
   const [{ canDrop, isOver, dropItemType, dropItem }, drop] = useDrop(() => ({
-    accept: ItemTypes.BOX,
-    drop: (item: any) => {
+    accept: ItemTypes.BOX + '',
+    drop: (item: any, monitor) => {
       item.addProps = "add";
       item.name = item.name + "ss";
       return item;
     },
-    collect: (monitor) => ({
-      isOver: monitor.isOver(),
-      canDrop: monitor.canDrop(),
-      dropItemType: monitor.getItemType(),
-      dropItem: monitor.getItem(),
-    }),
+    collect: (monitor) => {
+      return {
+        isOver: monitor.isOver(),
+        canDrop: monitor.canDrop(),
+        dropItemType: monitor.getItemType(),
+        dropItem: monitor.getItem(),
+      }
+    },
   }));
 
   const isActive = canDrop && isOver;
@@ -40,13 +42,13 @@ export const Dustbin: FC = () => {
     backgroundColor = "darkkhaki";
   }
 
-  console.log("======================== start ========================");
-  console.log(new Date());
-  console.log(`isOver : ${isOver}`);
-  console.log(`canDrop : ${canDrop}`);
-  console.log(dropItemType);
-  console.log(dropItem);
-  console.log("======================== end ========================");
+  console.info("======================== start ========================");
+  console.info(new Date());
+  console.info(`isOver : ${isOver}`);
+  console.info(`canDrop : ${canDrop}`);
+  console.info(`dropItemType : ${dropItemType as string}`);
+  console.info(`dropItem : ${dropItem}`);
+  console.info("======================== end ========================");
 
   return (
     <div ref={drop} style={{ ...style, backgroundColor }} data-testid="dustbin">
