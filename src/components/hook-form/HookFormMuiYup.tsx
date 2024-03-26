@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Box from "@mui/material/Box";
@@ -33,14 +34,30 @@ const defaultTheme = createTheme({
   },
 });
 
+const nameList: any[] = [
+  {
+    name: "Yamdeng1",
+  },
+  {
+    name: "Yamdeng2",
+  },
+  {
+    name: "Ya",
+  },
+  {
+    name: "YamdengGEALV",
+  },
+];
+
 export default function HookFormMuiYup() {
   const {
     handleSubmit,
     watch,
     control,
+    setValue,
     formState: { errors },
   } = useForm<BasicInfo>({
-    defaultValues: basicFormDefaultValues,
+    defaultValues: { ...basicFormDefaultValues, name: "YamdengGEALV" },
     resolver: yupResolver(basicInfoShapeSchema),
   });
 
@@ -91,28 +108,49 @@ export default function HookFormMuiYup() {
               <Controller
                 name="name"
                 control={control}
-                rules={{
-                  required: true,
-                  minLength: { value: 6, message: "최소6 자리이상" },
-                  maxLength: { value: 12, message: "최대 12자리이상" },
+                render={({ field: { onChange, onBlur, value } }) => {
+                  console.log(`hook-field-value : ${value}`);
+                  return (
+                    <>
+                      <Autocomplete
+                        id="name-autocomplete"
+                        value={nameList.find((op) => op.name === value)}
+                        onChange={(event: any, newValue: any | null) => {
+                          onChange(event);
+                          console.log(`onChange call : ${newValue}`);
+                          setValue("name", newValue ? newValue.name : "aaa");
+                        }}
+                        onBlur={() => {
+                          onBlur();
+                        }}
+                        options={nameList}
+                        getOptionLabel={(option: { name: string }) => {
+                          return option.name;
+                        }}
+                        isOptionEqualToValue={(option, value) => {
+                          if (value) {
+                            return option.name === value.name;
+                          }
+                          return false;
+                        }}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            variant="outlined"
+                            size="small"
+                          />
+                        )}
+                      />
+                      {errors.name ? (
+                        <FormHelperText className="error_message">
+                          {errors.name.message}
+                        </FormHelperText>
+                      ) : (
+                        ""
+                      )}
+                    </>
+                  );
                 }}
-                render={({ field }) => (
-                  <>
-                    <TextField
-                      margin="normal"
-                      label="이름"
-                      fullWidth
-                      {...field}
-                    />
-                    {errors.name ? (
-                      <FormHelperText className="error_message">
-                        {errors.name.message}
-                      </FormHelperText>
-                    ) : (
-                      ""
-                    )}
-                  </>
-                )}
               />
             </Grid>
           </Grid>
