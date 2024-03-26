@@ -68,3 +68,14 @@ export type FinalFieldInput = {
   arrayName: string;
   properties?: FinalFieldInput[];
 };
+
+export type AutoCompleteTestInfo = {
+  name: string;
+  roleNumberList: number[];
+};
+
+// export type AutoCompleteTestInfo = {
+//   name: string;
+//   roleNumberList: number[];
+//   roleList: string[];
+// };

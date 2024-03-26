@@ -140,3 +140,26 @@ export const finalSchema = yup.object().shape({
     )
     .required(),
 });
+
+// export const autoCompleteSchema = yup.object().shape({
+//   name: yup.string().required().min(5).max(10),
+//   roleList: yup
+//     .array()
+//     .of(yup.string())
+//     .required()
+//     .min(1, "하나의 role은(문자형) 추가해야합니다."),
+//   roleNumberList: yup
+//     .array()
+//     .of(yup.number())
+//     .required()
+//     .min(1, "하나의 role은(숫자형) 추가해야합니다."),
+// });
+
+export const autoCompleteSchema = yup.object().shape({
+  name: yup.string().required().min(5).max(10),
+  roleNumberList: yup
+    .array()
+    .of(yup.number())
+    .required()
+    .min(1, "하나의 role은(숫자형) 추가해야합니다."),
+});

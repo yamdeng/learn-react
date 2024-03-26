@@ -21,6 +21,7 @@ import HookFormMuiArray from "../components/hook-form/HookFormMuiArray.tsx";
 import HookFormMuiArrayYup from "../components/hook-form/HookFormMuiArrayYup.tsx";
 import HookFormMuiTotal from "../components/hook-form/HookFormMuiTotal.tsx";
 import HookFormMuiYup from "../components/hook-form/HookFormMuiYup.tsx";
+import HookFormMuiAutoCompleteYup from "../components/hook-form/HookFormMuiAutoCompleteYup.tsx";
 
 import HookFormHtmlFinal from "../components/hook-form/HookFormHtmlFinal.tsx";
 import HookFormHtmlControllerFinal from "../components/hook-form/HookFormHtmlControllerFinal.tsx";
@@ -51,6 +52,11 @@ const menu: Menu[] = [
         title: "HookFormMuiYup",
         path: "hook-form/mui-yup",
         component: HookFormMuiYup,
+      },
+      {
+        title: "HookFormMuiAutoCompleteYup",
+        path: "hook-form/mui-autocomplete-yup",
+        component: HookFormMuiAutoCompleteYup,
       },
       {
         title: "HookFormHtmlArray",
