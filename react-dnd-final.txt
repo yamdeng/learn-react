@@ -1,0 +1,20 @@
+### react-dnd-final ###
+
+ 1.useDrag
+  -drag가 되는 source에 ref로 전달해야 함
+  -item: drag할 대상의 item 정보를 정의함
+  -drag의 type을 정의함.(useDrop의 accept 속성정의시 관련 타입만 drop 할 수 있음)
+  -collect(monitor): monitor.isDragging(), monitor.getHandlerId() 2개를 기본적으로 export 시킴
+  -end(item, monitor) : end가 꼭 특정 drop 영역에 떨어졌다고 볼수는 없음(monitor.getDropResult() null이 됨)
+   : item ===> useDrag 정의한 item을 의미
+   : monitor.getDropResult<DropResult>() ===> useDrop.drop 함수에서 반환한 값을 의미
+   : dropResult.dropEffect ===> copy/move가 있음(alt키를 누르고 드래그시에 dropEffect가 copy가 됨)
+  -drag 태그의 스타일을 바꾸는 방법은 monitor.isDragging() 을 이용해서 처리한다(collect 함수에서 관련 속성 return)
+
+ 2.useDrop
+  -drop이 되는 target에 ref로 전달해야 함
+  -accept : 내가 받을 수 있는 Drag type을 명시할 수 있음
+   : useDrag.type에 정의한 값중 허용할 값을 정의
+  -drop(item, monitor) : dragSource가 drop이 됬을 경우 호출되고 object를 반환시 실제 dragsource의 item이 반환한 객체로 동기화되어서 수정된다 ===> useDrag.end에서 monitor.getDropResult() 메서드로 반환값을 이용할 수 있다
+  -collection(monitor) : monitor.isOver(), monitor.canDrop(), monitor.getItemType(), monitor.getItem()
+  -drop이 대상에 되는 스타일을 바꾸는 기본적인 방법은 monitor.canDrop(), monitor.isOver()를 이용해서 처리한다(collect 함수에서 관련 속성 return)
