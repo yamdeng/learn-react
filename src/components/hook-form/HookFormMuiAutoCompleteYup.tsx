@@ -59,7 +59,7 @@ export default function HookFormMuiAutoCompleteYup() {
     setValue,
     formState: { errors },
   } = useForm<AutoCompleteTestInfo>({
-    defaultValues: { name: "", roleNumberList: [] },
+    defaultValues: { name: "", roleNumberList: [5] },
     resolver: yupResolver(autoCompleteSchema),
   });
 
@@ -176,7 +176,7 @@ export default function HookFormMuiAutoCompleteYup() {
                         id="role-number"
                         options={roleTestData}
                         getOptionLabel={(option) => option.name}
-                        onChange={(event: any, newValue: any) => {
+                        onChange={(event: any, newValue: any[]) => {
                           console.log("start");
                           console.log(newValue);
                           console.log("end");
@@ -193,8 +193,6 @@ export default function HookFormMuiAutoCompleteYup() {
                           <TextField
                             {...params}
                             variant="standard"
-                            label="Multiple values7"
-                            placeholder="Favorites"
                             onChange={(event: any) => {
                               console.log(event);
                             }}
