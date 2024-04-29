@@ -1,12 +1,12 @@
-import Box from "../components/example/Box";
-import Grid from "../components/example/Grid";
+import PolarAreaTest from "../components/chart/PolarAreaTest";
+import PluginTest from "../components/chart/PluginTest";
 
 const menu = [
   {
-    title: "Container",
+    title: "Chart",
     children: [
-      { title: "Box", path: "layout/box", component: Box },
-      { title: "Grid", path: "layout/grid", component: Grid },
+      { title: "PolarAreaTest", path: "chart/polar-test", component: PolarAreaTest },
+      { title: "PluginTest", path: "chart/plugin-test", component: PluginTest },
     ],
   },
 ];
