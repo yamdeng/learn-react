@@ -23,7 +23,23 @@ export default function PlainChartTest() {
           },
           scales: {},
           plugins: {
+            legend: {
+              position: "bottom",
+              title: {
+                display: true,
+                text: "Number of Days",
+                font: {
+                  size: 14,
+                  weight: "bold",
+                },
+                padding: 20,
+                color: "green",
+              },
+            },
             "datasource-prometheus": {
+              findInLabelMap: (metric) => {
+                return "ccc";
+              },
               prometheus: {
                 endpoint: endPoint,
               },
