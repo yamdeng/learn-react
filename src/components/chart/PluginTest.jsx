@@ -26,8 +26,7 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend,
-  ChartDatasourcePrometheusPlugin
+  Legend
 );
 
 export default function PluginTest() {
