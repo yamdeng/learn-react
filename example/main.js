@@ -8,8 +8,12 @@ const ctx = document.querySelector("#myChart canvas").getContext("2d");
 
 endpointInput.value = "http://prometheus.openlabs.io:9090/";
 
-queryInput.value =
-  'spring_cloud_gateway_requests_seconds_sum{instance=~"192\\\\.168\\\\.87\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}/spring_cloud_gateway_requests_seconds_count{instance=~"192\\\\.168\\\\.87\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}';
+queryInput.value = 'rate(spring_cloud_gateway_requests_seconds_sum{instance=~"(192\\\\.168\\\\.87\\\\.108:18080|192\\\\.168\\\\.87\\\\.108:19080)", outcome="SUCCESSFUL", routeId=~"fico-admin-route", job=~"gateway"}[1m])'
+
+// queryInput.value = 'rate(spring_cloud_gateway_requests_seconds_sum{}[1m])';
+
+// queryInput.value =
+//   'spring_cloud_gateway_requests_seconds_sum{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}/spring_cloud_gateway_requests_seconds_count{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}';
 // queryInput.value = 'go_memstats_heap_objects';
 // queryInput.value = 'node_load1';
 
@@ -18,8 +22,11 @@ queryInput.value =
 // const end = new Date();
 
 // relative
-const start = -1 * 60 * 60 * 1000;
+// const start = -1 * 60 * 60 * 1000; 1시간 before
+const start = (-0.2) * 60 * 60 * 1000;
 const end = 0; // now
+// const start = 1714572370210;
+// const end = 1714615570210;
 
 const myChart = new Chart(ctx, {
   type: "line",
@@ -28,7 +35,8 @@ const myChart = new Chart(ctx, {
     animation: {
       duration: 0,
     },
-    scales: {},
+    scales: {
+    },
     plugins: {
       "datasource-prometheus": {
         prometheus: {
@@ -43,6 +51,9 @@ const myChart = new Chart(ctx, {
           end: end,
           // msUpdateInterval: 2000,
         },
+        findInLabelMap: (metrics) => {
+          return metrics.labels.instance + '/' + metrics.labels.httpMethod + '/' + metrics.labels.httpStatusCode
+        }
       },
     },
   },
