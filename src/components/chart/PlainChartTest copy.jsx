@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { Chart as ChartJS } from "chart.js";
-import { format } from "date-fns";
 import "chartjs-adapter-date-fns";
 import ChartDatasourcePrometheusPlugin from "chartjs-plugin-datasource-prometheus";
 
@@ -42,29 +41,7 @@ export default function PlainChartTest() {
           animation: {
             duration: 0,
           },
-          scales: {
-            x: {
-              afterCalculateLabelRotation: function(scaleInstance) {      
-                // scaleInstance.labelRotation = 90;
-              },
-              afterTickToLabelConversion: function (scaleInstance) {
-                const ticks = scaleInstance.ticks;
-                const newTicks = ticks.map((tick) => {
-                  const convertedLabel = format(
-                    new Date(tick.value),
-                    'MM/dd HH'
-                  );
-                  return {                    
-                    ...tick,
-                    label: convertedLabel,
-                    maxRotation: 90
-                  };
-                });
-        
-                scaleInstance.ticks = newTicks;
-              }
-            }
-          },
+          scales: {},
           plugins: {
             "datasource-prometheus": {
               findInLabelMap: (metric) => {
