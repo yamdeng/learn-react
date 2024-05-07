@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import "chartjs-adapter-date-fns";
 import ChartDatasourcePrometheusPlugin from "chartjs-plugin-datasource-prometheus";
@@ -37,7 +37,7 @@ export default function PlainChartTest() {
               },
             },
             "datasource-prometheus": {
-              findInLabelMap: (metric: any) => {
+              findInLabelMap: () => {
                 return "ccc";
               },
               prometheus: {
