@@ -9,7 +9,7 @@ const ctx = document.querySelector("#myChart canvas").getContext("2d");
 endpointInput.value = "http://prometheus.openlabs.io:9090/";
 
 queryInput.value =
-  'spring_cloud_gateway_requests_seconds_sum{instance=~"192\\\\.168\\\\.87\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}/spring_cloud_gateway_requests_seconds_count{instance=~"192\\\\.168\\\\.87\\\\.108:18080", routeId=~"fico-admin-route", job=~"gateway"}';
+  'spring_cloud_gateway_requests_seconds_sum{instance=~"(192.168.87.108:18080|192.168.87.108:19080)", routeId=~"fico-admin-route", job=~"gateway"}/spring_cloud_gateway_requests_seconds_count{instance=~"(192.168.87.108:18080|192.168.87.108:19080)", routeId=~"fico-admin-route", job=~"gateway"}';
 // queryInput.value = 'go_memstats_heap_objects';
 // queryInput.value = 'node_load1';
 
@@ -28,11 +28,10 @@ const myChart = new Chart(ctx, {
     animation: {
       duration: 0,
     },
-    scales: {
-    },
+    scales: {},
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
       "datasource-prometheus": {
         fill: true,
