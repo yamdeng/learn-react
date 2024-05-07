@@ -21,7 +21,7 @@ const chartConfig = [
     kind: "Request Processing Time",
     chartInfos: [
       {
-        name: "fico-admin-route",
+        name: "fico-admin-route(rpt)",
         sql: [RPTficoAdminRouteSQL],
       },
       {
@@ -32,17 +32,29 @@ const chartConfig = [
   },
   {
     kind: "Successful API Calls",
-    sqlInfos: [
+    chartInfos: [
       {
-        name: "fico-admin-route",
+        name: "fico-admin-route(sac)",
         sql: [SACficoAdminRoute],
       },
       {
-        name: "fico-admin-route",
+        name: "fico-app-example-swagger-route",
         sql: [SACficoAppExampleSwaggerRoute],
       },
     ],
   },
 ];
+
+export const getChartOption = (kind: string, name: string) => {
+  const searchKind = chartConfig.find((info) => info.kind === kind);
+  const chartOption = searchKind?.chartInfos?.find(
+    (info) => info.name === name
+  );
+  return chartOption;
+};
+
+export const getChartInfos = (kind: string): any[] => {
+  return chartConfig.find((info) => info.kind === kind)?.chartInfos || [];
+};
 
 export default chartConfig;
