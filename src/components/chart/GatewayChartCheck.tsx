@@ -3,10 +3,6 @@ import chartConfig, { getChartOption, getChartInfos } from "./chartConfig";
 import ChartComponent from "./ChartComponent";
 
 const kindList = chartConfig.map((info) => info.kind);
-const defaultChartOption =
-  getChartOption("Request Processing Time", "fico-admin-route") || [];
-
-const defaultSelectOptions = getChartInfos("Request Processing Time");
 
 export default function GatewayChartCheck() {
   const [selectedKind, setSelectedKind] = useState<string>(
@@ -15,10 +11,13 @@ export default function GatewayChartCheck() {
   const [selectedDetail, setSelectedDetail] =
     useState<string>("fico-admin-route");
 
-  const [chartOption, setChartOption] = useState<any>(defaultChartOption);
+  const [chartOption, setChartOption] = useState<any>(
+    getChartOption("Request Processing Time", "fico-admin-route")
+  );
 
-  const [chartSelectOptions, setChartSelectOptions] =
-    useState<any[]>(defaultSelectOptions);
+  const [chartSelectOptions, setChartSelectOptions] = useState<any[]>(
+    getChartInfos("Request Processing Time")
+  );
 
   // 대분류 변경
   const changeKind = (event: any) => {
@@ -31,14 +30,13 @@ export default function GatewayChartCheck() {
   // 상세 변경
   const changeDetail = (event: any) => {
     const value = event.target.value;
-    const chartOption = getChartOption(selectedKind, value);
     setSelectedDetail(value);
-    setChartOption(chartOption);
   };
 
   // 차트 refresh
   const refresh = () => {
     console.log(JSON.stringify(chartOption));
+    setChartOption(getChartOption(selectedKind, selectedDetail));
   };
 
   return (
@@ -74,7 +72,7 @@ export default function GatewayChartCheck() {
           refresh
         </button>
       </div>
-      <ChartComponent />
+      <ChartComponent chartOption={chartOption} />
     </>
   );
 }
