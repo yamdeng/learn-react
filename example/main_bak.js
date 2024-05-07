@@ -25,12 +25,22 @@ const end = 0; // now
 // const start = 1714572370210;
 // const end = 1714615570210;
 
-console.log('222')
+console.log("222");
 
-const query1 = 'irate(node_network_receive_bytes_total{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:9100", job=~"node"}[1m0s])*8'
-const query2 = 'irate(node_network_transmit_bytes_total{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:9100", job=~"node"}[1m0s])*8'
+const query1 =
+  'irate(node_network_receive_bytes_total{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:9100", job=~"node"}[1m0s])*8';
+const query2 =
+  'irate(node_network_transmit_bytes_total{instance=~"192\\\\\\\\.168\\\\\\\\.87\\\\\\\\.108:9100", job=~"node"}[1m0s])*8';
 
-const querys = ['sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="system"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))', `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="user"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`, `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="iowait"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`, `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode=~".*irq"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`, `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`, `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="idle"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`, `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="system"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`]
+const querys = [
+  'sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="system"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))',
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="user"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="iowait"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode=~".*irq"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode!='idle',mode!='user',mode!='system',mode!='iowait',mode!='irq',mode!='softirq'}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="idle"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+  `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="system"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`,
+];
 // const querys = ['sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="system"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))', `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node", mode="user"}[1m0s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192\\\\.168\\\\.87\\\\.108:9100", job=~"node"}[1m0s])))`]
 
 // false, true, "before", "middle" or "after"
@@ -39,8 +49,8 @@ const myChart = new Chart(ctx, {
   type: "line",
   plugins: [ChartDatasourcePrometheusPlugin],
   options: {
-    legend : {
-      display: false
+    legend: {
+      display: false,
     },
     animation: {
       duration: 0,
@@ -50,17 +60,14 @@ const myChart = new Chart(ctx, {
       //   afterTickToLabelConversion: function (scaleInstance) {
       //     const ticks = scaleInstance.ticks;
       //     ticks.offsetAfterAutoskip = true;
-
       //     // const newTicks = ticks.map((tick) => {
       //     //   return {
       //     //     // 원본 x축 값을 이용하여 각 x축 값들이 어떻게 표시될지 수정할 수 있습니다.
       //     //   };
       //     // });
-  
       //     scaleInstance.ticks = ticks;
       //     // scaleInstance.ticks에 새로운 ticks를 재할당해줘야 적용이 됩니다!
       //   },
-  
       // }
       // y: [
       //     {title: 'aaa1'},
@@ -73,25 +80,33 @@ const myChart = new Chart(ctx, {
       // ]
     },
     plugins: {
-      legend : {
+      legend: {
         display: true,
         labels: {
           generateLabels: (chart) => {
-            return [{text: 'aaa1', datasetIndex: 0}, {text: 'bbb', datasetIndex: 1}, {text: 'ccc', datasetIndex: 2}, {text: 'ddd', datasetIndex: 3}, {text: 'eee', datasetIndex: 4}, {text: 'fff', datasetIndex: 5}, {text: 'ggg3', datasetIndex: 6}]
-          }
+            return [
+              { text: "aaa1", datasetIndex: 0 },
+              { text: "bbb", datasetIndex: 1 },
+              { text: "ccc", datasetIndex: 2 },
+              { text: "ddd", datasetIndex: 3 },
+              { text: "eee", datasetIndex: 4 },
+              { text: "fff", datasetIndex: 5 },
+              { text: "ggg3", datasetIndex: 6 },
+            ];
+          },
         },
         onClick: (e, legendItem, legend) => {
           const index = legendItem.datasetIndex;
           const ci = legend.chart;
-          debugger
+          debugger;
           if (ci.isDatasetVisible(index)) {
-              ci.hide(index);
-              legendItem.hidden = true;
+            ci.hide(index);
+            legendItem.hidden = true;
           } else {
-              ci.show(index);
-              legendItem.hidden = false;
+            ci.show(index);
+            legendItem.hidden = false;
           }
-        }
+        },
       },
       "datasource-prometheus": {
         prometheus: {
@@ -110,31 +125,31 @@ const myChart = new Chart(ctx, {
         },
         fillGaps: false,
         findInLabelMap2: (metrics) => {
-          return 'kkk'
+          return "kkk";
         },
         dataSetHook3: (beforeDataSets) => {
-          beforeDataSets[0].label = '111'
-          beforeDataSets[1].label = '222'
-          beforeDataSets[2].label = '333'
-          beforeDataSets[3].label = '444'
-          beforeDataSets[4].label = '555'
-          beforeDataSets[5].label = '666'
-          beforeDataSets[6].label = '777'
-          return beforeDataSets
-        }
+          beforeDataSets[0].label = "111";
+          beforeDataSets[1].label = "222";
+          beforeDataSets[2].label = "333";
+          beforeDataSets[3].label = "444";
+          beforeDataSets[4].label = "555";
+          beforeDataSets[5].label = "666";
+          beforeDataSets[6].label = "777";
+          return beforeDataSets;
+        },
       },
-    },    
+    },
   },
 });
 
-function customReq(start, end, step) {
+function customReq(start, end, step, label) {
   const url = `https://prometheus.demo.do.prometheus.io/api/v1/query_range?query=${encodeURIComponent(
     queryInput.value
   )}&start=${start.getTime() / 1000}&end=${end.getTime() / 1000}&step=${step}`;
   const proxiedUrl = `https://cors-anywhere-chartjs-demo.herokuapp.com/${url}`;
   return fetch(proxiedUrl)
     .then((response) => response.json())
-    .then((response) => response["data"]);
+    .then((response) => (response["data"].metric[0].label = label));
 }
 
 form.addEventListener("submit", (event) => {

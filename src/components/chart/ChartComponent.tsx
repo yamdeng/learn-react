@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import "chartjs-adapter-date-fns";
 
@@ -12,7 +12,7 @@ const end = 0; // now
 export default function ChartComponent(props: any) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const canvasInstance = useRef<any>(null);
-  const { chartOption } = props;
+  const { chartOption, width, height } = props;
 
   useEffect(() => {
     if (chartOption && canvasRef && canvasRef.current) {
@@ -39,7 +39,7 @@ export default function ChartComponent(props: any) {
                   start: start,
                   end: end,
                   step: 30,
-                  // msUpdateInterval: 2000,
+                  msUpdateInterval: 2000,
                 },
               },
             },
@@ -52,10 +52,23 @@ export default function ChartComponent(props: any) {
         canvasInstance.current.update();
       }
     }
-  }, [chartOption]);
+    return () => {
+      if (canvasInstance && canvasInstance.current) {
+        // debugger;
+        debugger;
+        // canvasInstance.current.destroy();
+      }
+    };
+  }, []);
 
   return (
-    <div style={{ border: "1px solid black", width: 700, height: 700 }}>
+    <div
+      style={{
+        border: "1px solid black",
+        width: width ?? 700,
+        height: height ?? 700,
+      }}
+    >
       <canvas ref={canvasRef}></canvas>
     </div>
   );

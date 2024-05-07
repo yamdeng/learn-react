@@ -2,6 +2,7 @@ import Box from "../components/example/Box.tsx";
 import Grid from "../components/example/Grid.tsx";
 import PlainChartTest from "../components/chart/PlainChartTest.tsx";
 import GatewayChartCheck from "../components/chart/GatewayChartCheck.tsx";
+import PerformanceCheck from "../components/chart/PerformanceCheck.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -23,6 +24,11 @@ const menu: Menu[] = [
         title: "GatewayChartCheck",
         path: "chart/fico-gateway",
         component: GatewayChartCheck,
+      },
+      {
+        title: "PerformanceCheck",
+        path: "chart/performance",
+        component: PerformanceCheck,
       },
     ],
   },

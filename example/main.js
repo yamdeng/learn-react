@@ -8,11 +8,13 @@ const ctx = document.querySelector("#myChart canvas").getContext("2d");
 
 endpointInput.value = "http://prometheus.openlabs.io:9090/";
 
-queryInput.value =
-  'spring_cloud_gateway_requests_seconds_sum{instance=~"(192.168.87.108:18080|192.168.87.108:19080)", routeId=~"fico-admin-route", job=~"gateway"}/spring_cloud_gateway_requests_seconds_count{instance=~"(192.168.87.108:18080|192.168.87.108:19080)", routeId=~"fico-admin-route", job=~"gateway"}';
+// queryInput.value = `100 - ((node_filesystem_avail_bytes{instance=~"192.168.87.101:9100", job=~"node",device!~'rootfs'} * 100) / node_filesystem_size_bytes{instance=~"192.168.87.101:9100", job=~"node",device!~'rootfs'})`;
 // queryInput.value = 'go_memstats_heap_objects';
 // queryInput.value = 'node_load1';
 
+const query1 = `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192.168.87.101:9100", job=~"node", mode="system"}[2m15s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192.168.87.101:9100", job=~"node"}[2m15s])))`;
+
+const query2 = `sum by(instance) (irate(node_cpu_seconds_total{instance=~"192.168.87.101:9100", job=~"node", mode="user"}[2m15s])) / on(instance) group_left sum by (instance)((irate(node_cpu_seconds_total{instance=~"192.168.87.101:9100", job=~"node"}[2m15s])))`;
 // // absolute
 // const start = new Date(new Date().getTime() - (60 * 60 * 1000));
 // const end = new Date();
@@ -30,17 +32,14 @@ const myChart = new Chart(ctx, {
     },
     scales: {},
     plugins: {
-      legend: {
-        display: false,
-      },
       "datasource-prometheus": {
-        fill: true,
+        fill: false,
         // backgroundColor: 'red',
         prometheus: {
           endpoint: endpointInput.value,
         },
-        // query: ['node_load1', 'node_load5', 'node_load15'],
-        query: queryInput.value,
+        query: [query1, query2],
+        // query: queryInput.value,
         // query: customReq,
         timeRange: {
           type: "relative",
