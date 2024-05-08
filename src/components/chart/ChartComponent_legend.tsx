@@ -76,7 +76,7 @@ export default function ChartComponent(props: any) {
     <div
       style={{
         border: "0px solid black",
-        width: width ?? 500,
+        width: width ?? 320,
         height: height ?? 300,
         overflowY: "scroll",
         position: "relative",
@@ -86,8 +86,8 @@ export default function ChartComponent(props: any) {
         ref={canvasRef}
         style={{
           border: "0px solid black",
-          width: "100%",
-          height: 350,
+          width: 305,
+          height: 300,
         }}
       ></canvas>
     </div>
