@@ -19,9 +19,9 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function MuiAccordionWithGrid() {
   const length = 3;
   // 기본값이 3
-  let responsiveColumnSize = 3;
+  let responsiveColumnSize = 4;
 
-  if (length < 4) {
+  if (length < 3) {
     responsiveColumnSize = 12 / length;
   }
   return (
