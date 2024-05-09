@@ -6,6 +6,7 @@ import ChartDatasourcePrometheusPlugin from "chartjs-plugin-datasource-prometheu
 
 const endPoint = "http://prometheus.openlabs.io:9090/";
 const query = "rate(spring_cloud_gateway_requests_seconds_sum{}[1m])";
+// const query = `process_cpu_usage{instance=~"192.168.87.108:18080", job=~"gateway"}`;
 const start = -1 * 60 * 60 * 1000;
 const end = 0; // now
 
@@ -52,6 +53,9 @@ export default function ChartComponent(props: any) {
                   step: 30,
                   // msUpdateInterval: 2000,
                 },
+                findInLabelMap: (metrics) => {
+                  return "kkk";
+                },
               },
             },
           },
@@ -76,7 +80,7 @@ export default function ChartComponent(props: any) {
     <div
       style={{
         border: "0px solid black",
-        width: width ?? 500,
+        width: width ?? 310,
         height: height ?? 300,
         overflowY: "scroll",
         position: "relative",
@@ -87,7 +91,7 @@ export default function ChartComponent(props: any) {
         style={{
           border: "0px solid black",
           width: "100%",
-          height: 350,
+          height: 300,
         }}
       ></canvas>
     </div>

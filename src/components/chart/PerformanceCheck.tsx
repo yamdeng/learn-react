@@ -43,9 +43,7 @@ export default function PerformanceCheck() {
         </button>
       </div>
       {chartList.map((chartOption) => {
-        return (
-          <ChartComponent chartOption={chartOption} width={250} height={250} />
-        );
+        return <ChartComponent chartOption={chartOption} />;
       })}
     </>
   );
