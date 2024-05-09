@@ -11,6 +11,7 @@ import PlainChartTest from "../components/chart/PlainChartTest.tsx";
 import GatewayChartCheck from "../components/chart/GatewayChartCheck.tsx";
 import PerformanceCheck from "../components/chart/PerformanceCheck.tsx";
 import MuiAccordionWithChart from "../components/chart/MuiAccordionWithChart.tsx";
+import MuiSelectMultiple from "../components/mui/MuiSelectMultiple.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -56,6 +57,11 @@ const menu: Menu[] = [
         title: "MuiAccordionWithGrid",
         path: "basic/accordion-with-grid",
         component: MuiAccordionWithGrid,
+      },
+      {
+        title: "MuiSelectMultiple",
+        path: "basic/select-multiple",
+        component: MuiSelectMultiple,
       },
     ],
   },
