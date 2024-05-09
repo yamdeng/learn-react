@@ -6,6 +6,11 @@ import MuiAccordion from "../components/mui/MuiAccordion.tsx";
 import MuiGridBasic from "../components/mui/MuiGridBasic.tsx";
 import MuiGridBasicAdvance from "../components/mui/MuiGridBasicAdvance.tsx";
 import MuiAccordionWithGrid from "../components/mui/MuiAccordionWithGrid.tsx";
+// ** chart 화면
+import PlainChartTest from "../components/chart/PlainChartTest.tsx";
+import GatewayChartCheck from "../components/chart/GatewayChartCheck.tsx";
+import PerformanceCheck from "../components/chart/PerformanceCheck.tsx";
+import MuiAccordionWithChart from "../components/chart/MuiAccordionWithChart.tsx";
 import { Menu } from "../types/index.ts";
 
 const menu: Menu[] = [
@@ -51,6 +56,31 @@ const menu: Menu[] = [
         title: "MuiAccordionWithGrid",
         path: "basic/accordion-with-grid",
         component: MuiAccordionWithGrid,
+      },
+    ],
+  },
+  {
+    title: "Chart",
+    children: [
+      {
+        title: "PlainChartTest",
+        path: "layout/chart",
+        component: PlainChartTest,
+      },
+      {
+        title: "GatewayChartCheck",
+        path: "chart/fico-gateway",
+        component: GatewayChartCheck,
+      },
+      {
+        title: "PerformanceCheck",
+        path: "chart/performance",
+        component: PerformanceCheck,
+      },
+      {
+        title: "MuiAccordionWithChart",
+        path: "chart/MuiAccordionWithChart",
+        component: MuiAccordionWithChart,
       },
     ],
   },
