@@ -1,12 +1,12 @@
-import Box from "../components/example/Box";
-import Grid from "../components/example/Grid";
+import FirstStoreExample from "../components/zustand/FirstStoreExample";
+import DocExample1 from "../components/zustand/DocExample1";
 
 const menu = [
   {
-    title: "Container",
+    title: "Zustand",
     children: [
-      { title: "Box", path: "layout/box", component: Box },
-      { title: "Grid", path: "layout/grid", component: Grid },
+      { title: "first store", path: "zustand/first", component: FirstStoreExample },
+      { title: "DocExample1", path: "zustand/example", component: DocExample1 }
     ],
   },
 ];
