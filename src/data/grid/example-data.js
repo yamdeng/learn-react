@@ -1,0 +1,73 @@
+import { faker } from '@faker-js/faker';
+
+const columnKeyList = ['id', 'sabun', 'position', 'name', 'deptName', 'sex', 'email', 'age', 'jobArea', 'phone', 'address1', 'address2', 'startDate', 'endDate', 'createdDate', 'updatedDate', 'addressInfo', 'airlineInfo'];
+
+const defaultTableRows = 20
+const defaultTableManyRows = 100
+
+const getRandomValueByColumnKey = (columnKey) => {
+    if(columnKey === 'id') {
+        return faker.string.uuid()
+    } else if(columnKey === 'sabun') {
+        return faker.string.numeric({ length: { min: 5, max: 10 } }) + ''
+    } else if(columnKey === 'position') {
+        return faker.helpers.arrayElement(['대리', '과장', '차장'])
+    } else if(columnKey === 'name') {
+        return faker.person.middleName()
+    } else if(columnKey === 'deptName') {
+        return faker.helpers.arrayElement(['항공안전', '산업안전', '운항팀', 'Audit', 'IT'])
+    } else if(columnKey === 'sex') {
+        return faker.person.sex()
+    } else if(columnKey === 'email') {
+        return faker.internet.email()
+    } else if(columnKey === 'age') {
+        return faker.number.int({ min: 10, max: 100 })
+    } else if(columnKey === 'jobArea') {
+        return faker.person.jobArea()
+    } else if(columnKey === 'phone') {
+        return faker.phone.number()
+    } else if(columnKey === 'address1') {
+        return faker.location.city()
+    } else if(columnKey === 'address2') {
+        return faker.location.city()
+    } else if(columnKey === 'startDate' || columnKey === 'createdDate') {
+        return faker.date.between({ from: '2024-01-01T00:00:00.000Z', to: '2024-04-01T00:00:00.000Z' })
+    } else if(columnKey === 'endDate' || columnKey === 'updatedDate') {
+        return faker.date.between({ from: '2024-04-02T00:00:00.000Z', to: '2025-01-17T00:00:00.000Z' })
+    } else if(columnKey === 'addressInfo') {
+        return {
+            name : faker.location.city(),
+            zipCode : faker.location.zipCode(),
+            streetAddress : faker.location.streetAddress()
+        }
+    } else if(columnKey === 'airlineInfo') {
+        // name / iataCode
+        return faker.airline.airline()
+    }
+    return ''
+}
+
+const getRowData = () => {
+    const rowDataResult = {}
+    for(let columnIndex=0; columnIndex<columnKeyList.length; columnIndex++) {
+        const columnKey = columnKeyList[columnIndex]
+        rowDataResult[columnKey] = getRandomValueByColumnKey(columnKey)
+    }
+    return rowDataResult;
+}
+
+export const getTestData = () => {
+    const result = []
+    for(let index=0; index<defaultTableRows; index++) {
+        result.push(getRowData())
+    }
+    return result
+}
+
+export const getTestManyData = () => {
+    const result = []
+    for(let index=0; index<defaultTableManyRows; index++) {
+        result.push(getRowData())
+    }
+    return result
+}
