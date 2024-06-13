@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-const columnKeyList = ['id', 'sabun', 'position', 'name', 'deptName', 'sex', 'email', 'age', 'jobArea', 'phone', 'address1', 'address2', 'startDate', 'endDate', 'createdDate', 'updatedDate', 'addressInfo', 'airlineInfo'];
+const columnKeyList = ['id', 'sabun', 'position', 'name', 'deptName', 'sex', 'createdDate', 'updatedDate', 'email', 'age', 'jobArea', 'phone', 'address1', 'address2', 'startDate', 'endDate', 'addressInfo', 'airlineInfo'];
 
 const defaultTableRows = 20
 const defaultTableManyRows = 100
@@ -70,4 +70,13 @@ export const getTestManyData = () => {
         result.push(getRowData())
     }
     return result
+}
+
+export const getAgGridColumnListByListIndex = (lastIndex) => {
+    const sliceColumnKeyList = columnKeyList.slice(0, lastIndex)
+    return sliceColumnKeyList.map(keyName => {
+        return {
+            field: keyName
+        }
+    })
 }
