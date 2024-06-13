@@ -1,6 +1,8 @@
 import { faker } from '@faker-js/faker';
+import _ from 'lodash';
 
-const columnKeyList = ['id', 'sabun', 'position', 'name', 'deptName', 'sex', 'createdDate', 'updatedDate', 'email', 'age', 'jobArea', 'phone', 'address1', 'address2', 'startDate', 'endDate', 'addressInfo', 'airlineInfo'];
+const columnKeyList = ['id', 'sabun', 'position', 'name', 'deptName', 'sex', 'createdDate', 'updatedDate', 'email', 'age', 'jobArea', 'phone', 'address1', 'address2', 'startDate', 'endDate', 'addressInfo', 
+    'addressInfo', 'addressInfo', 'airlineInfo', 'airlineInfo'];
 
 const defaultTableRows = 20
 const defaultTableManyRows = 100
@@ -41,7 +43,6 @@ const getRandomValueByColumnKey = (columnKey) => {
             streetAddress : faker.location.streetAddress()
         }
     } else if(columnKey === 'airlineInfo') {
-        // name / iataCode
         return faker.airline.airline()
     }
     return ''
@@ -76,7 +77,17 @@ export const getAgGridColumnListByListIndex = (lastIndex) => {
     const sliceColumnKeyList = columnKeyList.slice(0, lastIndex)
     return sliceColumnKeyList.map(keyName => {
         return {
-            field: keyName
+            field: keyName,
+            headerName: _.capitalize(keyName)
+        }
+    })
+}
+
+export const getAgGridColumnListByManulList = (manualList) => {
+    return manualList.map(keyName => {
+        return {
+            field: keyName,
+            headerName: _.capitalize(keyName)
         }
     })
 }

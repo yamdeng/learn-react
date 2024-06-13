@@ -1,4 +1,5 @@
 import AgNoData from "../components/ag-grid/NoData";
+import AgLoading from "../components/ag-grid/Loading";
 import AgBasicDataMapping from "../components/ag-grid/BasicDataMapping";
 import AgNestedDataMapping from "../components/ag-grid/NestedDataMapping";
 import AgTableWidth from "../components/ag-grid/TableWidth";
@@ -42,7 +43,8 @@ const menu = [
   {
     title: "ag-grid",
     children: [
-      { title: "No-Data", path: "ag-grid/AgNoData", component: AgNoData },
+      { title: "AgNoData", path: "ag-grid/AgNoData", component: AgNoData },
+      { title: "AgLoading", path: "ag-grid/AgLoading", component: AgLoading },
       { title: "AgBasicDataMapping", path: "ag-grid/AgBasicDataMapping", component: AgBasicDataMapping },
       { title: "AgNestedDataMapping", path: "ag-grid/AgNestedDataMapping", component: AgNestedDataMapping },
       { title: "AgTableWidth", path: "ag-grid/AgTableWidth", component: AgTableWidth },

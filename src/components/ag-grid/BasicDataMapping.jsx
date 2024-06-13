@@ -6,10 +6,8 @@ import { getAgGridColumnListByListIndex, getTestData } from '../../data/grid/exa
 export default function BasicDataMapping() {
   
   const [rowData, setRowData] = useState([]);
-
-  const defaultColumnInfos = getAgGridColumnListByListIndex(8)
-
-  const [columnInfos] = useState(defaultColumnInfos)
+  const defaultColumnInfos = getAgGridColumnListByListIndex(8);
+  const [columnInfos] = useState(defaultColumnInfos);
 
   useEffect(() => {
     setRowData(getTestData())
