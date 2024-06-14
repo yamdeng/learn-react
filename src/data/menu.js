@@ -8,8 +8,6 @@ import AgTableHeight from '../components/ag-grid/TableHeight'
 import AgRowSingleClick from '../components/ag-grid/RowSingleClick'
 import AgRowDoubleClick from '../components/ag-grid/RowDoubleClick'
 import AgPagination from '../components/ag-grid/Pagination'
-import AgSort from '../components/ag-grid/Sort'
-import AgLocalFilter from '../components/ag-grid/LocalFilter'
 import AgHeaderGrouping from '../components/ag-grid/HeaderGrouping'
 import AgCSVExport from '../components/ag-grid/CSVExport'
 import AgRowCheckBoxSingleSelect from '../components/ag-grid/RowCheckBoxSingleSelect'
@@ -81,12 +79,6 @@ const menu = [
         title: 'AgPagination',
         path: 'ag-grid/AgPagination',
         component: AgPagination
-      },
-      { title: 'AgSort', path: 'ag-grid/AgSort', component: AgSort },
-      {
-        title: 'AgLocalFilter',
-        path: 'ag-grid/AgLocalFilter',
-        component: AgLocalFilter
       },
       {
         title: 'AgHeaderGrouping',
