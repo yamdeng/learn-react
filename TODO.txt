@@ -1,0 +1,12 @@
+// 기본 컬럼 설정 셋팅 방법
+const defaultColDef = useMemo(() => {
+    return {
+      editable: true,
+      enableRowGroup: true,
+      enablePivot: true,
+      enableValue: true,
+      filter: true,
+      flex: 1,
+      minWidth: 100,
+    };
+  }, []);ㅠ

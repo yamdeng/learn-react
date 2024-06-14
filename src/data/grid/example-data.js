@@ -9,6 +9,8 @@ const defaultTableManyRows = 100
 
 const getRandomValueByColumnKey = (columnKey) => {
     if(columnKey === 'id') {
+
+
         return faker.string.uuid()
     } else if(columnKey === 'sabun') {
         return faker.string.numeric({ length: { min: 5, max: 10 } }) + ''
