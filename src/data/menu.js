@@ -1,6 +1,7 @@
 import CreateTest from "../components/zustand/CreateTest";
 import CreateStoreTest from "../components/zustand/CreateStoreTest";
 import UseShallowTest from "../components/zustand/UseShallowTest";
+import MergeTest from "../components/zustand/MergeTest";
 
 const menu = [
   {
@@ -16,6 +17,11 @@ const menu = [
         title: "UseShallowTest",
         path: "zustand/shallow",
         component: UseShallowTest,
+      },
+      {
+        title: "MergeTest",
+        path: "zustand/merge",
+        component: MergeTest,
       },
     ],
   },
