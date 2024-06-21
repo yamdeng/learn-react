@@ -22,7 +22,7 @@ const Profile = function Profile() {
 };
 
 export default function CreateStoreTest() {
-  console.log("CreateTest render");
+  console.log("CreateStoreTest render");
 
   return (
     <StoreContext.Provider value={useTestStore2}>

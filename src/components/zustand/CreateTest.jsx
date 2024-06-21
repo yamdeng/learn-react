@@ -1,11 +1,5 @@
 import { memo } from "react";
 import useTestStore from "../../store/useTestStore";
-/**
-
-  1.전체 state change test
-  2.개별 state change test
-
- */
 
 const Name = memo(function Name({ name }) {
   console.log("Name Component Render");

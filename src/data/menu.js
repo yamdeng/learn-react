@@ -1,5 +1,6 @@
 import CreateTest from "../components/zustand/CreateTest";
 import CreateStoreTest from "../components/zustand/CreateStoreTest";
+import UseShallowTest from "../components/zustand/UseShallowTest";
 
 const menu = [
   {
@@ -10,6 +11,11 @@ const menu = [
         title: "CreateStoreTest",
         path: "zustand/createStore",
         component: CreateStoreTest,
+      },
+      {
+        title: "UseShallowTest",
+        path: "zustand/shallow",
+        component: UseShallowTest,
       },
     ],
   },

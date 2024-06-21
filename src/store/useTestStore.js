@@ -5,7 +5,7 @@ const useTestStore = create((set) => ({
   name: "ays",
   age: 30,
   increaseAge: () => set((state) => ({ age: state.age + 1 })),
-  changeName: (newName) => set((state) => ({ ...state, name: newName })),
+  changeName: (newName) => set(() => ({ name: newName })),
   changeAge: (newAge) => set((state) => ({ ...state, age: newAge })),
   changeProfile: (newProfile) =>
     set(() => ({
