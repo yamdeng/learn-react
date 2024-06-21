@@ -1,0 +1,115 @@
+#.case1
+
+import { create } from 'zustand'
+
+type State = {
+  obj: { count: number }
+}
+
+const store = create<State>(() => ({ obj: { count: 0 } }))
+
+store.setState((prev) => ({ obj: { count: prev.obj.count + 1 } }))
+
+#.case2
+const useCountStore = create<State & Actions>((set) => ({
+  count: 0,
+  updateCount: (countCallback) =>
+    set((state) => ({ count: countCallback(state.count) })),
+}))
+
+const Component = () => {
+  const count = useCountStore((state) => state.count)
+  const updateCount = useCountStore((state) => state.updateCount)
+  // ...
+}
+
+#.case3 : type을 아래와 같이 사용하는 경우
+type State = {
+  firstName: string
+  lastName: string
+}
+
+type Action = {
+  updateFirstName: (firstName: State['firstName']) => void
+  updateLastName: (lastName: State['lastName']) => void
+}
+
+#.case4 : 특정 속성만 update가 가능한 기능?
+// Create your store, which includes both state and (optionally) actions
+const usePersonStore = create<State & Action>((set) => ({
+  firstName: '',
+  lastName: '',
+  updateFirstName: (firstName) => set(() => ({ firstName: firstName })),
+  updateLastName: (lastName) => set(() => ({ lastName: lastName })),
+}))
+
+#.case5 : slice
+const useBoundStore = create((set) => ({
+  storeSliceA: ...,
+  storeSliceB: ...,
+  storeSliceC: ...,
+  updateX: () => set(...),
+  updateY: () => set(...),
+}))
+
+#.case6 : selector creator
+https://docs.pmnd.rs/zustand/guides/auto-generating-selectors
+
+#.case7 : store정의한 액션 함수를 그대로 사용할 필요는 없음
+https://docs.pmnd.rs/zustand/guides/practice-with-no-store-actions
+
+#.case8 : store 자동 저장을 제공(localStorage)
+https://docs.pmnd.rs/zustand/guides/connect-to-state-with-url-hash
+https://docs.pmnd.rs/zustand/integrations/persisting-store-data#simple-example : 기본 middleware
+
+#.case9 : 공통 패턴을 slice를 사용하여 분리
+https://docs.pmnd.rs/zustand/guides/slices-pattern
+
+#.case10 : useShallow
+https://docs.pmnd.rs/zustand/guides/prevent-rerenders-with-use-shallow#example
+
+#.case11 : immer 연동 가이드
+https://docs.pmnd.rs/zustand/integrations/immer-middleware
+
+#.case12 : slice-util 가이드
+https://github.com/zustandjs/zustand-slices
+
+#.case13 : compare
+const treats = useBearStore(
+  (state) => state.treats,
+  (oldTreats, newTreats) => compare(oldTreats, newTreats),
+)
+
+#.case14 : ajax
+const useFishStore = create((set) => ({
+  fishies: {},
+  fetch: async (pond) => {
+    const response = await fetch(pond)
+    set({ fishies: await response.json() })
+  },
+}))
+
+#.case15 : subscribe
+
+#.case16 : unmount clear
+const useScratchStore = create((set) => ({ scratches: 0, ... }))
+
+const Component = () => {
+  // Fetch initial state
+  const scratchRef = useRef(useScratchStore.getState().scratches)
+  // Connect to the store on mount, disconnect on unmount, catch state-changes in a reference
+  useEffect(() => useScratchStore.subscribe(
+    state => (scratchRef.current = state.scratches)
+  ), [])
+
+#.case17 : store communication
+https://github.com/pmndrs/zustand?tab=readme-ov-file#using-zustand-without-react
+
+
+#.아래의 경우 확인 필요
+import { useStore } from 'zustand'
+import { vanillaStore } from './vanillaStore'
+
+const useBoundStore = (selector) => useStore(vanillaStore, selector)
+
+
