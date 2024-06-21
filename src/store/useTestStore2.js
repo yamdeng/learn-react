@@ -1,4 +1,4 @@
-import { createStore, useStore } from "zustand";
+import { createStore } from "zustand";
 
 const useTestStore2 = createStore((set) => ({
   profile: null,

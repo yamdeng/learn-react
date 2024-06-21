@@ -1,35 +1,33 @@
+import { createContext, useContext } from "react";
+import { useStore } from "zustand";
 import useTestStore2 from "../../store/useTestStore2";
 
-/**
+const StoreContext = createContext();
 
-  1.전체 state change test
-  2.개별 state change test
+const Profile = function Profile() {
+  console.log("Profile Component Render");
 
- */
-
-const Name = function Name({ name }) {
-  console.log("Name Component Render");
-  return <p>Name Component {name}</p>;
-};
-
-export default function CreateStoreTest() {
-  // 전체 state select
-
-  const name = useTestStore2((state) => state.name);
-  // const changeProfile = useTestStore((state) => state.changeProfile);
-  // const profile = useTestStore((state) => state.profile);
+  const store = useContext(StoreContext);
+  const changeProfile = useStore(store, (state) => state.changeProfile);
+  const profile = useStore(store, (state) => state.profile);
 
   return (
     <div>
-      create test
-      <p>name : {name}</p>
-      <Name name={name} />
-      {/* <p>profile : {profile ? JSON.stringify(profile) : "not rofile"}</p> */}
-      {/* <div>
-        <button onClick={() => changeProfile({ name: "profileName" })}>
-          changeProfile
-        </button>
-      </div> */}
+      <p>profile : {profile ? JSON.stringify(profile) : "not profile"}</p>
+      <button onClick={() => changeProfile({ name: "ays" })}>
+        changeProfile
+      </button>
     </div>
+  );
+};
+
+export default function CreateStoreTest() {
+  console.log("CreateTest render");
+
+  return (
+    <StoreContext.Provider value={useTestStore2}>
+      createStore test : context
+      <Profile />
+    </StoreContext.Provider>
   );
 }
