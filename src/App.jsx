@@ -12,6 +12,7 @@ menu.forEach((rootMenuInfo) => {
 });
 
 function App() {
+  console.log(`App render`);
   useEffect(() => {
     //
   }, []);
