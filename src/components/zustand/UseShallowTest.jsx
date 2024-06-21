@@ -41,7 +41,25 @@ const BearAges = () => {
     })
   );
 
-  return <div>{ageTotal}</div>;
+  // 다음과 같이 useShallow를 대입할당 방식으로 사용할 수 있음 : object case
+  const { nuts, honey } = useMeals(
+    useShallow((state) => ({ nuts: state.papaBear, honey: state.mamaBear }))
+  );
+
+  // 다음과 같이 useShallow를 대입할당 방식으로 사용할 수 있음 : array case
+  const [nuts2, honey2] = useMeals(
+    useShallow((state) => [state.papaBear, state.mamaBear])
+  );
+
+  return (
+    <div>
+      <p>ageTotal: {ageTotal}</p>
+      <p>nuts : {nuts}</p>
+      <p>honey : {honey}</p>
+      <p>nuts2 : {nuts2}</p>
+      <p>honey2 : {honey2}</p>
+    </div>
+  );
 };
 
 const BearProfile = () => {
