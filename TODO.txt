@@ -1,7 +1,11 @@
 ### zustand ###
 
- #.1depth에 한해서는 자동 merge를 해주는 걸로
+ #.createStore 마스터
 
- #.useShallow
-  -https://mine-it-record.tistory.com/717
-  -https://hooninedev.com/240222/
+ #.store 통신, util 레이어에서 store 호출
+
+ #.immer 연동 case(clear 포함)
+
+
+
+
