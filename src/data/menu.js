@@ -5,6 +5,7 @@ import UseShallowTest from "../components/zustand/UseShallowTest";
 import MergeTest from "../components/zustand/MergeTest";
 import MultipleStoreTest from "../components/zustand/MultipleStoreTest";
 import ImmerTest from "../components/zustand/ImmerTest";
+import TransactionTest from "../components/zustand/TransactionTest";
 
 const menu = [
   {
@@ -40,6 +41,11 @@ const menu = [
         title: "ImmerTest",
         path: "zustand/immer",
         component: ImmerTest,
+      },
+      {
+        title: "TransactionTest",
+        path: "zustand/transaction",
+        component: TransactionTest,
       },
     ],
   },
