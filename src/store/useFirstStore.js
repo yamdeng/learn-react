@@ -1,0 +1,15 @@
+import { create } from "zustand";
+import useSecondStore from "./useSecondStore";
+
+const useFirstStore = create((set) => ({
+  name: "",
+  age: 30,
+  changeName: (newName) => {
+    if (!useSecondStore.getState().name) {
+      set(() => ({ name: newName }));
+    }
+  },
+  changeAge: (newAge) => set(() => ({ age: newAge })),
+}));
+
+export default useFirstStore;
