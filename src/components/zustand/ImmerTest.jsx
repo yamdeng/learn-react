@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { create } from "zustand";
 import { produce } from "immer";
 
-const initailState = {
+const profileInitailState = {
   name: "ays",
   authList: ["R", "W"],
   deptInfo: {
@@ -11,8 +11,15 @@ const initailState = {
   },
 };
 
+const initailState = {
+  rootName: "yamdeng",
+  profile: profileInitailState,
+};
+
+// profile: profileInitailState,
+
 const useBearStore = create((set, get) => ({
-  profile: initailState,
+  ...initailState,
 
   writeLog: (fnName) => {
     console.log(`call function name : ${fnName}`);
@@ -34,10 +41,20 @@ const useBearStore = create((set, get) => ({
       })
     ),
 
+  changeRootName: (name) => {
+    set(
+      produce((state) => {
+        state.rootName = name + " > root";
+      })
+    );
+    get().writeLog("changeProfileName");
+  },
   clearStoreByInitData: () =>
     set(() => ({
-      profile: initailState,
+      profile: profileInitailState,
     })),
+  clearStoreByInitDataAll: () => set(() => initailState),
+
   clearStore: () =>
     set(() => ({
       profile: {
@@ -64,8 +81,10 @@ export default function ImmerTest() {
     profile,
     changeProfileName,
     changeProfileDeptName,
+    changeRootName,
     clearStore,
     clearStoreByInitData,
+    clearStoreByInitDataAll,
     clearDirect,
   } = useBearStore();
 
@@ -92,12 +111,34 @@ export default function ImmerTest() {
       MergeTest
       <p>profile : {JSON.stringify(profile)}</p>
       <div>
-        <button onClick={() => changeProfileName("ays777")}>
-          changeProfileName
-        </button>
-        <button onClick={() => changeProfileDeptName("ower")}>
-          changeProfileDeptName
-        </button>
+        <p>
+          <button onClick={() => changeProfileName("ays777")}>
+            changeProfileName
+          </button>
+        </p>
+        <p>
+          <button onClick={() => changeProfileDeptName("ower")}>
+            changeProfileDeptName
+          </button>
+        </p>
+
+        <p>
+          <button onClick={() => changeRootName("goo eun ae love")}>
+            changeRootName
+          </button>
+        </p>
+
+        <p>
+          <button onClick={() => clearStoreByInitData()}>
+            clearStoreByInitData
+          </button>
+        </p>
+
+        <p>
+          <button onClick={() => clearStoreByInitDataAll()}>
+            clearStoreByInitDataAll
+          </button>
+        </p>
       </div>
     </div>
   );
