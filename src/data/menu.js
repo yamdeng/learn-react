@@ -7,6 +7,7 @@ import MultipleStoreTest from "../components/zustand/MultipleStoreTest";
 import ImmerTest from "../components/zustand/ImmerTest";
 import TransactionTest from "../components/zustand/TransactionTest";
 import StoreCommunicationTest from "../components/zustand/StoreCommunicationTest";
+import UtilUseCaseTest from "../components/zustand/UtilUseCaseTest";
 
 const menu = [
   {
@@ -52,6 +53,11 @@ const menu = [
         title: "StoreCommunicationTest",
         path: "zustand/store-communication",
         component: StoreCommunicationTest,
+      },
+      {
+        title: "UtilUseCaseTest",
+        path: "zustand/util-use-store",
+        component: UtilUseCaseTest,
       },
     ],
   },

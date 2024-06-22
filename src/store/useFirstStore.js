@@ -2,7 +2,7 @@ import { create } from "zustand";
 import useSecondStore from "./useSecondStore";
 
 const useFirstStore = create((set) => ({
-  name: "",
+  name: "first",
   age: 30,
   changeName: (newName) => {
     if (!useSecondStore.getState().name) {
