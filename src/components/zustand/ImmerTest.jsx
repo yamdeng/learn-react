@@ -53,7 +53,8 @@ const useBearStore = create((set, get) => ({
     set(() => ({
       profile: profileInitailState,
     })),
-  clearStoreByInitDataAll: () => set(() => initailState),
+  // clearStoreByInitDataAll: () => set(() => initailState),
+  clearStoreByInitDataAll: () => set(initailState), // 이것도됨
 
   clearStore: () =>
     set(() => ({
@@ -79,6 +80,7 @@ export default function ImmerTest() {
 
   const {
     profile,
+    rootName,
     changeProfileName,
     changeProfileDeptName,
     changeRootName,
@@ -110,6 +112,7 @@ export default function ImmerTest() {
     <div>
       MergeTest
       <p>profile : {JSON.stringify(profile)}</p>
+      <p>rootName : {rootName}</p>
       <div>
         <p>
           <button onClick={() => changeProfileName("ays777")}>
