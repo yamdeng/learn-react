@@ -49,6 +49,12 @@ const useBearStore = create((set, get) => ({
         },
       },
     })),
+  clearDirect: () => {
+    // useBearStore.setState({
+    //   profile: null,
+    // });
+    useBearStore.getState().clearStore();
+  },
 }));
 
 export default function ImmerTest() {
@@ -60,9 +66,12 @@ export default function ImmerTest() {
     changeProfileDeptName,
     clearStore,
     clearStoreByInitData,
+    clearDirect,
   } = useBearStore();
 
   console.log(clearStore);
+  console.log(clearDirect);
+  console.log(clearStoreByInitData);
 
   // const profile = useBearStore((state) => state.profile);
   // const changeProfileName = useBearStore((state) => state.changeProfileName);
@@ -75,8 +84,7 @@ export default function ImmerTest() {
   // );
 
   useEffect(() => {
-    return () => clearStoreByInitData();
-    // return () => clearStore();
+    return () => clearDirect();
   }, []);
 
   return (

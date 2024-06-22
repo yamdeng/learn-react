@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useStore } from "zustand";
 import useTestStore2 from "../../store/useTestStore2";
 import CreateStoreTest from "./CreateStoreTest";
@@ -19,6 +20,13 @@ const Profile = function Profile() {
 
 export default function CreateStoreTest2() {
   console.log("CreateStoreTest2 render");
+  const clearStore1 = useStore(useTestStore2, (state) => state.clearStore1);
+  const clearStore2 = useStore(useTestStore2, (state) => state.clearStore2);
+  console.log(`clearStore1 : ${clearStore1}`);
+  console.log(`clearStore2 : ${clearStore2}`);
+  useEffect(() => {
+    return clearStore2();
+  }, []);
 
   return (
     <>
