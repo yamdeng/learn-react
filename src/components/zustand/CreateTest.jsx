@@ -26,6 +26,7 @@ export default function CreateTest() {
   // const { name, changeName } = useTestStore();
   const name = useTestStore((state) => state.name);
   const changeName = useTestStore((state) => state.changeName);
+  const changeName2 = useTestStore((state) => state.changeName2);
   // const changeProfile = useTestStore((state) => state.changeProfile);
   // const profile = useTestStore((state) => state.profile);
 
@@ -40,7 +41,11 @@ export default function CreateTest() {
       <Profile />
       <div>
         <button onClick={() => changeName("ays17")}>changeName</button>
+        <br />
+        <button onClick={() => changeName2("eunae")}>changeName2</button>
+        <br />
         <button onClick={() => changeAge(41)}>changeAge</button>
+        <br />
         {/* <button onClick={() => changeProfile({ name: "profileName" })}>
           changeProfile
         </button> */}

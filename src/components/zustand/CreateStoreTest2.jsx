@@ -20,6 +20,8 @@ const Profile = function Profile() {
 
 export default function CreateStoreTest2() {
   console.log("CreateStoreTest2 render");
+  const name = useStore(useTestStore2, (state) => state.name);
+  const changeName = useStore(useTestStore2, (state) => state.changeName);
   const clearStore1 = useStore(useTestStore2, (state) => state.clearStore1);
   const clearStore2 = useStore(useTestStore2, (state) => state.clearStore2);
   console.log(`clearStore1 : ${clearStore1}`);
@@ -31,6 +33,10 @@ export default function CreateStoreTest2() {
   return (
     <>
       createStore2test : context
+      <p>name : {name}</p>
+      <p>
+        <button onClick={() => changeName("yongseong")}>changeName</button>
+      </p>
       <Profile />
       <hr />
       <CreateStoreTest />
