@@ -11,14 +11,22 @@ const initailState = {
   },
 };
 
-const useBearStore = create((set) => ({
+const useBearStore = create((set, get) => ({
   profile: initailState,
-  changeProfileName: (newName) =>
+
+  writeLog: (fnName) => {
+    console.log(`call function name : ${fnName}`);
+    const profile = get().profile;
+    console.log(`profile.name : ${profile.name}`);
+  },
+  changeProfileName: (newName) => {
     set(
       produce((state) => {
         state.profile.name = newName + "good";
       })
-    ),
+    );
+    get().writeLog("changeProfileName");
+  },
   changeProfileDeptName: (newDeptName) =>
     set(
       produce((state) => {
