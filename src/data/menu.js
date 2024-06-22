@@ -8,6 +8,8 @@ import ImmerTest from "../components/zustand/ImmerTest";
 import TransactionTest from "../components/zustand/TransactionTest";
 import StoreCommunicationTest from "../components/zustand/StoreCommunicationTest";
 import UtilUseCaseTest from "../components/zustand/UtilUseCaseTest";
+import SliceListTest from "../components/zustand/SliceListTest";
+import SliceListRefTest from "../components/zustand/SliceListRefTest";
 
 const menu = [
   {
@@ -58,6 +60,16 @@ const menu = [
         title: "UtilUseCaseTest",
         path: "zustand/util-use-store",
         component: UtilUseCaseTest,
+      },
+      {
+        title: "SliceListTest",
+        path: "zustand/slice-list-test",
+        component: SliceListTest,
+      },
+      {
+        title: "SliceListRefTest",
+        path: "zustand/slice-list-ref-test",
+        component: SliceListRefTest,
       },
     ],
   },
