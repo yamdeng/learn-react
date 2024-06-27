@@ -15,7 +15,8 @@ import AgRowCheckBoxMultipleSelect from '../components/ag-grid/RowCheckBoxMultip
 import AgNewRowAdd from '../components/ag-grid/NewRowAdd'
 import AgGridEdit from '../components/ag-grid/GridEdit'
 import AgGridBatchEdit from '../components/ag-grid/GridBatchEdit'
-import HeaderCustomComponent from '../components/ag-grid/HeaderCustomComponent'
+import AgHeaderCustomComponent from '../components/ag-grid/HeaderCustomComponent'
+import AgInfiniteScroll from '../components/ag-grid/InfiniteScroll'
 
 import AgColumnSort from '../components/ag-grid/column/ColumnSort'
 import AgColumnFilter from '../components/ag-grid/column/ColumnFilter'
@@ -115,9 +116,14 @@ const menu = [
         component: AgGridBatchEdit
       },
       {
-        title: 'HeaderCustomComponent',
-        path: 'ag-grid/HeaderCustomComponent',
-        component: HeaderCustomComponent
+        title: 'AgHeaderCustomComponent',
+        path: 'ag-grid/AgHeaderCustomComponent',
+        component: AgHeaderCustomComponent
+      },
+      {
+        title: 'AgInfiniteScroll',
+        path: 'ag-grid/AgInfiniteScroll',
+        component: AgInfiniteScroll
       },
       {
         title: 'AgColumnSort',
