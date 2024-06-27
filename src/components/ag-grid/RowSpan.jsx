@@ -17,6 +17,10 @@ export default function RowSpan() {
       : 1
     return rowspanCount
   }
+  defaultColumnInfos[2].cellClassRules = {
+    'cell-span': params =>
+      params.data.rowSpanGroupCount && params.data.rowSpanGroupCount > 1
+  }
   const [columnInfos] = useState(defaultColumnInfos)
 
   useEffect(() => {
