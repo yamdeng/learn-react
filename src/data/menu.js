@@ -15,6 +15,7 @@ import AgRowCheckBoxMultipleSelect from '../components/ag-grid/RowCheckBoxMultip
 import AgNewRowAdd from '../components/ag-grid/NewRowAdd'
 import AgGridEdit from '../components/ag-grid/GridEdit'
 import AgGridBatchEdit from '../components/ag-grid/GridBatchEdit'
+import HeaderCustomComponent from '../components/ag-grid/HeaderCustomComponent'
 
 import AgColumnSort from '../components/ag-grid/column/ColumnSort'
 import AgColumnFilter from '../components/ag-grid/column/ColumnFilter'
@@ -115,7 +116,11 @@ const menu = [
         path: 'ag-grid/AgGridBatchEdit',
         component: AgGridBatchEdit
       },
-
+      {
+        title: 'HeaderCustomComponent',
+        path: 'ag-grid/HeaderCustomComponent',
+        component: HeaderCustomComponent
+      },
       {
         title: 'AgColumnSort',
         path: 'ag-grid/column/AgColumnSort',
