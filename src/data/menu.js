@@ -26,8 +26,6 @@ import AgColumnBodyAlign from '../components/ag-grid/column/ColumnBodyAlign'
 import AgColumnLock from '../components/ag-grid/column/ColumnLock'
 import AgColumnCustomRender from '../components/ag-grid/column/ColumnCustomRender'
 import AgColumnCustomRenderWithHandle from '../components/ag-grid/column/ColumnCustomRenderWithHandle'
-import AgColumnVisibleDynamic from '../components/ag-grid/column/ColumnVisibleDynamic'
-import AgColumnWidthDynamic from '../components/ag-grid/column/ColumnWidthDynamic'
 import AgColumnDynamic from '../components/ag-grid/column/ColumnDynamic'
 
 import AgTreeTable from '../components/ag-grid/TreeTable'
@@ -165,16 +163,6 @@ const menu = [
         title: 'AgColumnCustomRenderWithHandle',
         path: 'ag-grid/column/AgColumnCustomRenderWithHandle',
         component: AgColumnCustomRenderWithHandle
-      },
-      {
-        title: 'AgColumnVisibleDynamic',
-        path: 'ag-grid/column/AgColumnVisibleDynamic',
-        component: AgColumnVisibleDynamic
-      },
-      {
-        title: 'AgColumnWidthDynamic',
-        path: 'ag-grid/column/AgColumnWidthDynamic',
-        component: AgColumnWidthDynamic
       },
       {
         title: 'AgColumnDynamic',
