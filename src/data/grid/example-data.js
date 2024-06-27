@@ -19,7 +19,8 @@ const columnKeyList = [
   'startDate',
   'endDate',
   'addressInfo',
-  'airlineInfo'
+  'airlineInfo',
+  'userList'
 ]
 
 const defaultTableRows = 20
@@ -74,6 +75,22 @@ const getRandomValueByColumnKey = columnKey => {
     }
   } else if (columnKey === 'airlineInfo') {
     return faker.airline.airline()
+  } else if (columnKey === 'userList') {
+    const userList = [];
+    for(let index = 0; index<5; index++) {
+      userList.push({
+        name: faker.person.middleName(),
+        deptName: faker.helpers.arrayElement([
+          '항공안전',
+          '산업안전',
+          '운항팀',
+          'Audit',
+          'IT'
+        ]),
+        positionTitle: faker.helpers.arrayElement(['대리', '과장', '차장'])
+      })
+    }
+    return userList;
   }
   return ''
 }
