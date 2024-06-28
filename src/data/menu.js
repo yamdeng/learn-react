@@ -17,6 +17,7 @@ import AgGridEdit from '../components/ag-grid/GridEdit'
 import AgGridBatchEdit from '../components/ag-grid/GridBatchEdit'
 import AgHeaderCustomComponent from '../components/ag-grid/HeaderCustomComponent'
 import AgInfiniteScroll from '../components/ag-grid/InfiniteScroll'
+import AgInfiniteScrollByServer from '../components/ag-grid/InfiniteScrollByServer'
 
 import AgColumnSort from '../components/ag-grid/column/ColumnSort'
 import AgColumnFilter from '../components/ag-grid/column/ColumnFilter'
@@ -116,7 +117,7 @@ const menu = [
         component: AgGridBatchEdit
       },
       {
-        title: 'AgHeaderCustomComponent',
+        title: 'HeaderCustomComponent',
         path: 'ag-grid/AgHeaderCustomComponent',
         component: AgHeaderCustomComponent
       },
@@ -124,6 +125,11 @@ const menu = [
         title: 'AgInfiniteScroll',
         path: 'ag-grid/AgInfiniteScroll',
         component: AgInfiniteScroll
+      },
+      {
+        title: 'AgInfiniteScrollByServer',
+        path: 'ag-grid/AgInfiniteScrollByServer',
+        component: AgInfiniteScrollByServer
       },
       {
         title: 'AgColumnSort',
