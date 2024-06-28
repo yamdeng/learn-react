@@ -24,7 +24,7 @@ const columnKeyList = [
 ]
 
 const defaultTableRows = 20
-const defaultTableManyRows = 100
+const defaultTableManyRows = 150
 
 const getRandomValueByColumnKey = columnKey => {
   if (columnKey === 'id') {
@@ -76,8 +76,8 @@ const getRandomValueByColumnKey = columnKey => {
   } else if (columnKey === 'airlineInfo') {
     return faker.airline.airline()
   } else if (columnKey === 'userList') {
-    const userList = [];
-    for(let index = 0; index<5; index++) {
+    const userList = []
+    for (let index = 0; index < 5; index++) {
       userList.push({
         name: faker.person.middleName(),
         deptName: faker.helpers.arrayElement([
@@ -90,7 +90,7 @@ const getRandomValueByColumnKey = columnKey => {
         positionTitle: faker.helpers.arrayElement(['대리', '과장', '차장'])
       })
     }
-    return userList;
+    return userList
   }
   return ''
 }
