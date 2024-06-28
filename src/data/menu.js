@@ -17,6 +17,7 @@ import AgNewRowAdd from '../components/ag-grid/NewRowAdd'
 import AgGridEdit from '../components/ag-grid/GridEdit'
 import AgGridBatchEdit from '../components/ag-grid/GridBatchEdit'
 import AgHeaderCustomComponent from '../components/ag-grid/HeaderCustomComponent'
+import AgToolTip from '../components/ag-grid/ToolTip'
 import AgInfiniteScroll from '../components/ag-grid/InfiniteScroll'
 import AgInfiniteScrollByServer from '../components/ag-grid/InfiniteScrollByServer'
 
@@ -91,6 +92,11 @@ const menu = [
         title: 'AgHeaderGrouping',
         path: 'ag-grid/AgHeaderGrouping',
         component: AgHeaderGrouping
+      },
+      {
+        title: 'AgToolTip',
+        path: 'ag-grid/AgToolTip',
+        component: AgToolTip
       },
       {
         title: 'AgCSVExport',
