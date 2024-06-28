@@ -20,9 +20,9 @@ export default function InfiniteScroll() {
         }
       }
     },
-    { field: 'athlete', minWidth: 150 },
+    { field: 'athlete', minWidth: 150, filter: true },
     { field: 'age' },
-    { field: 'country', minWidth: 150 },
+    { field: 'country', minWidth: 150, filter: true },
     { field: 'year' },
     { field: 'date', minWidth: 150 },
     { field: 'sport', minWidth: 150 },
@@ -31,11 +31,21 @@ export default function InfiniteScroll() {
     { field: 'bronze' },
     { field: 'total' }
   ])
+
+  // 아래를 적용해야 실시간으로 적용이 안됨
+  // filterParams: {
+  //   buttons: ['apply'],
+  //   closeOnApply: true
+  // }
   const defaultColDef = useMemo(() => {
     return {
       flex: 1,
       minWidth: 100,
-      sortable: false
+      sortable: false,
+      filterParams: {
+        buttons: ['apply'],
+        closeOnApply: true
+      }
     }
   }, [])
 
@@ -59,6 +69,7 @@ export default function InfiniteScroll() {
               if (data.length <= params.endRow) {
                 lastRow = data.length
               }
+
               // call the success callback
               params.successCallback(rowsThisPage, lastRow)
             }, 500)
