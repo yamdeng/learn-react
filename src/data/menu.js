@@ -35,6 +35,7 @@ import AgColumnDynamic from '../components/ag-grid/column/ColumnDynamic'
 import AgTreeTable from '../components/ag-grid/TreeTable'
 import AgRowSpan from '../components/ag-grid/RowSpan'
 import AgColsPan from '../components/ag-grid/ColsPan'
+import PromiseExample from '../components/ag-grid/PromiseExample'
 import AgTableStyleOverride from '../components/ag-grid/TableStyleOverride'
 
 const menu = [
@@ -205,7 +206,12 @@ const menu = [
         title: 'AgTableStyleOverride',
         path: 'ag-grid/AgTableStyleOverride',
         component: AgTableStyleOverride
-      }
+      },
+      {
+        title: 'PromiseExample',
+        path: 'ag-grid/PromiseExample',
+        component: PromiseExample
+      },
     ]
   }
 ]
