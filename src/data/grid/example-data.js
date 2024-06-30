@@ -23,7 +23,7 @@ const columnKeyList = [
   'userList'
 ]
 
-const defaultTableRows = 20
+const defaultTableRows = 25
 const defaultTableManyRows = 150
 
 const getRandomValueByColumnKey = columnKey => {
@@ -137,4 +137,22 @@ export const getAgGridColumnListByManulList = manualList => {
       headerName: _.capitalize(keyName)
     }
   })
+}
+
+export const getPageData = (page, pageSize) => {
+  return manyData.slice((page - 1) * pageSize, page * pageSize)
+}
+
+const simeData = []
+for (let index = 0; index < defaultTableRows; index++) {
+  let rowData = getRowData()
+  rowData.index = index + 1
+  simeData.push(rowData)
+}
+
+const manyData = []
+for (let index = 0; index < defaultTableManyRows; index++) {
+  let rowData = getRowData()
+  rowData.index = index + 1
+  manyData.push(rowData)
 }

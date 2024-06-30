@@ -36,6 +36,7 @@ import AgTreeTable from '../components/ag-grid/TreeTable'
 import AgRowSpan from '../components/ag-grid/RowSpan'
 import AgColsPan from '../components/ag-grid/ColsPan'
 import PromiseExample from '../components/ag-grid/PromiseExample'
+import LocalPageExample from '../components/ag-grid/LocalPageExample'
 import AgTableStyleOverride from '../components/ag-grid/TableStyleOverride'
 
 const menu = [
@@ -212,6 +213,11 @@ const menu = [
         path: 'ag-grid/PromiseExample',
         component: PromiseExample
       },
+      {
+        title: 'LocalPageExample',
+        path: 'ag-grid/LocalPageExample',
+        component: LocalPageExample
+      }
     ]
   }
 ]
