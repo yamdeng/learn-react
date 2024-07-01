@@ -1,8 +1,28 @@
 import { create } from "zustand";
 import { createListSlice } from "../../store/slice/commonSlice";
 
-const useUserListStore = create((...a) => ({
-  ...createListSlice(...a),
+// const useUserListStore = create((...a) => ({
+//   ...createListSlice(...a),
+// }));
+
+// slice argument 직접 사용하기
+// const useUserListStore = create((set, get) => ({
+//   ...createListSlice(set, get),
+//   changePageSize: (pageSize) => {
+//     alert(pageSize);
+//     set({ pageSize: pageSize, currentPage: 1 });
+//     get().search();
+//   },
+// }));
+
+const useUserListStore = create((set, get) => ({
+  ...createListSlice(set, get),
+  currentPage: 20,
+  changePageSize: (pageSize) => {
+    alert(pageSize);
+    set({ pageSize: pageSize, currentPage: 1 });
+    get().search();
+  },
 }));
 
 export default function SliceListRefTest() {
@@ -16,6 +36,8 @@ export default function SliceListRefTest() {
     list,
     search,
   } = useUserListStore();
+
+  console.log(`currentPage : ${currentPage}`);
 
   return (
     <div>
