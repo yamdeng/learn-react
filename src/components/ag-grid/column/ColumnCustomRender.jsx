@@ -6,12 +6,8 @@ import {
   getTestData
 } from '../../../data/grid/example-data'
 
-const CustomCellComponent = async function (props) {
+const CustomCellComponent = function (props) {
   console.log(props)
-
-  const filterInstance = await props.api.getColumnFilterInstance('sabun')
-
-  debugger
 
   const { changeName } = props
 
@@ -34,7 +30,6 @@ export default function ColumnCustomRender() {
   }
   const defaultColumnInfos = getAgGridColumnListByListIndex(8)
   defaultColumnInfos[1].cellRenderer = CustomCellComponent
-  defaultColumnInfos[1].filter = true
   defaultColumnInfos[1].cellRendererParams = {
     changeName: changeName
   }
