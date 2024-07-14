@@ -112,3 +112,7 @@ code {
 /* .ag-picker-field {
   display: none !important;
 } */
+
+.rag-green {
+  border-left: 2px solid gray;
+}
