@@ -40,6 +40,8 @@ import LocalPageExample from '../components/ag-grid/LocalPageExample'
 import AgTableStyleOverride from '../components/ag-grid/TableStyleOverride'
 import FilterTest1 from '../components/ag-grid/FilterTest1'
 import FilterTest2 from '../components/ag-grid/FilterTest2'
+import ColumnDrag from '../components/ag-grid/column/ColumnDrag'
+import RowDrag from '../components/ag-grid/RowDrag'
 
 const menu = [
   {
@@ -229,6 +231,16 @@ const menu = [
         title: 'FilterTest2',
         path: 'ag-grid/FilterTest2',
         component: FilterTest2
+      },
+      {
+        title: 'ColumnDrag',
+        path: 'ag-grid/ColumnDrag',
+        component: ColumnDrag
+      },
+      {
+        title: 'RowDrag',
+        path: 'ag-grid/RowDrag',
+        component: RowDrag
       }
     ]
   }
