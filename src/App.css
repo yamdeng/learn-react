@@ -66,3 +66,8 @@
   padding: 5px 10px;
   cursor: pointer;
 }
+
+/* ag-grid custom */
+.ag-filter-body-wrapper .ag-picker-field .ag-labeled {
+  display: none;
+}

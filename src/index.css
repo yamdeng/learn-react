@@ -103,3 +103,12 @@ code {
 .grid-cell-centered {
   text-align: center;
 }
+
+/* ag-grid custom */
+.ag-filter-body-wrapper .ag-picker-field.ag-labeled {
+  display: none !important;
+}
+
+/* .ag-picker-field {
+  display: none !important;
+} */

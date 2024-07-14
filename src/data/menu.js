@@ -38,6 +38,8 @@ import AgColsPan from '../components/ag-grid/ColsPan'
 import PromiseExample from '../components/ag-grid/PromiseExample'
 import LocalPageExample from '../components/ag-grid/LocalPageExample'
 import AgTableStyleOverride from '../components/ag-grid/TableStyleOverride'
+import FilterTest1 from '../components/ag-grid/FilterTest1'
+import FilterTest2 from '../components/ag-grid/FilterTest2'
 
 const menu = [
   {
@@ -217,6 +219,16 @@ const menu = [
         title: 'LocalPageExample',
         path: 'ag-grid/LocalPageExample',
         component: LocalPageExample
+      },
+      {
+        title: 'FilterTest1',
+        path: 'ag-grid/FilterTest1',
+        component: FilterTest1
+      },
+      {
+        title: 'FilterTest2',
+        path: 'ag-grid/FilterTest2',
+        component: FilterTest2
       }
     ]
   }
